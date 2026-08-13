@@ -468,7 +468,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 }
 
 /* ===== Render performance: skip layout work for off-screen sections ===== */
-.gallery,.reviews{
+.reviews{
   content-visibility:auto;
   contain-intrinsic-size:1px 800px;
 }
