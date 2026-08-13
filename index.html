@@ -208,13 +208,25 @@
   <div class="wrap">
     <p class="eyebrow">Галерея</p>
     <h2>Комплекс у деталях.</h2>
-    <div class="gallery-grid">
-      <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-267.jpg" alt="Аркан, вигляд корпусу" loading="lazy" decoding="async" width="500" height="500">
-      <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-285.jpg" alt="Аркан, тераса" loading="lazy" decoding="async" width="500" height="500">
-      <img src="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-14.jpg" alt="Аркан, вид на гори" loading="lazy" decoding="async" width="500" height="500">
-      <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-292.jpg" alt="Аркан, номер" loading="lazy" decoding="async" width="500" height="500">
-      <img src="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-53.jpg" alt="Аркан, територія" loading="lazy" decoding="async" width="500" height="500">
-      <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-2.jpg" alt="Аркан, вечір" loading="lazy" decoding="async" width="500" height="500">
+
+    <div class="carousel" id="galleryCarousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide"><img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-267.jpg" alt="Аркан, вигляд корпусу" loading="lazy" decoding="async" width="900" height="600"></div>
+        <div class="carousel-slide"><img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-285.jpg" alt="Аркан, тераса" loading="lazy" decoding="async" width="900" height="600"></div>
+        <div class="carousel-slide"><img src="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-14.jpg" alt="Аркан, вид на гори" loading="lazy" decoding="async" width="900" height="600"></div>
+        <div class="carousel-slide"><img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-292.jpg" alt="Аркан, номер" loading="lazy" decoding="async" width="900" height="600"></div>
+        <div class="carousel-slide"><img src="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-53.jpg" alt="Аркан, територія" loading="lazy" decoding="async" width="900" height="600"></div>
+        <div class="carousel-slide"><img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-2.jpg" alt="Аркан, вечір" loading="lazy" decoding="async" width="900" height="600"></div>
+      </div>
+
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Попереднє фото">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Наступне фото">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
   </div>
 </section>
@@ -250,7 +262,7 @@
     <div class="contact-info">
       <p class="eyebrow">Контакти та бронювання</p>
       <h2>Домовимось про дати.</h2>
-      <p>Зателефонуйте або напишіть у месенджер — і ми підберемо номер під ваші дати та кількість гостей.</p>
+      <p>Зателефонуйте — і ми підберемо номер під ваші дати та кількість гостей.</p>
       <div class="contact-block">
         <span class="contact-label">Телефон</span>
         <a href="tel:+380976209033">+38 (097) 620 90 33</a>
@@ -259,25 +271,12 @@
         <span class="contact-label">Адреса</span>
         <p>вул. Жаб'євська, 67, смт Верховина, Івано-Франківська область</p>
       </div>
-      <div class="contact-block">
-        <span class="contact-label">Мессенджери</span>
-        <div class="contact-links">
-          <a href="viber://chat?number=+380976209033">Viber</a>
-          <a href="https://t.me/yo_verkhovynalife">Telegram</a>
-          <a href="https://www.facebook.com/messages/t/100007382139102">Messenger</a>
-        </div>
-      </div>
     </div>
 
     <div class="contact-panel">
       <p class="eyebrow">Швидкий зв'язок</p>
-      <p class="contact-panel-lede">Найшвидше — зателефонувати або написати у месенджер. Відповідаємо особисто, без ботів.</p>
+      <p class="contact-panel-lede">Найшвидше — зателефонувати. Відповідаємо особисто, без ботів.</p>
       <a href="tel:+380976209033" class="btn btn-primary btn-block">Зателефонувати +38 (097) 620 90 33</a>
-      <div class="contact-panel-links">
-        <a href="viber://chat?number=+380976209033">Viber</a>
-        <a href="https://t.me/yo_verkhovynalife">Telegram</a>
-        <a href="https://www.facebook.com/messages/t/100007382139102">Messenger</a>
-      </div>
     </div>
   </div>
 </section>
