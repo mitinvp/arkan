@@ -69,3 +69,30 @@ if (track) {
 
   track.style.transition = 'transform .4s ease';
 }
+
+// Back to top button
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backToTop.classList.toggle('visible', window.scrollY > 600);
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Highlight active nav link on scroll
+const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
+const sections = navLinks
+  .map(link => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+function updateActiveNav() {
+  let current = sections[0];
+  for (const sec of sections) {
+    if (window.scrollY >= sec.offsetTop - 140) current = sec;
+  }
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`);
+  });
+}
+window.addEventListener('scroll', updateActiveNav);
+updateActiveNav();
