@@ -19,6 +19,8 @@ const nextBtn = document.getElementById('carouselNext');
 if (track) {
   const slides = Array.from(track.children);
   let index = 0;
+  let isSyncing = false;
+  let syncTimer = null;
 
   slides.forEach((_, i) => {
     const dot = document.createElement('button');
@@ -29,18 +31,41 @@ if (track) {
   });
   const dots = Array.from(dotsWrap.children);
 
-  function update() {
-    track.style.transform = `translateX(-${index * 100}%)`;
+  function setActiveDot() {
     dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  function clearSyncGuard() {
+    isSyncing = false;
+    if (syncTimer) window.clearTimeout(syncTimer);
   }
 
   function goTo(i) {
     index = (i + slides.length) % slides.length;
-    update();
+    isSyncing = true;
+    track.scrollTo({ left: track.clientWidth * index, behavior: 'smooth' });
+    setActiveDot();
+    // fallback in case 'scrollend' isn't supported or never fires
+    if (syncTimer) window.clearTimeout(syncTimer);
+    syncTimer = window.setTimeout(clearSyncGuard, 900);
+  }
+
+  if ('onscrollend' in window) {
+    track.addEventListener('scrollend', clearSyncGuard);
   }
 
   prevBtn.addEventListener('click', () => goTo(index - 1));
   nextBtn.addEventListener('click', () => goTo(index + 1));
+
+  // keep dots in sync if the user scrolls/swipes the track directly
+  track.addEventListener('scroll', () => {
+    if (isSyncing) return;
+    const newIndex = Math.round(track.scrollLeft / track.clientWidth);
+    if (newIndex !== index && newIndex >= 0 && newIndex < slides.length) {
+      index = newIndex;
+      setActiveDot();
+    }
+  }, { passive: true });
 
   // keyboard support when carousel is focused/hovered
   const carousel = document.getElementById('galleryCarousel');
@@ -49,25 +74,6 @@ if (track) {
     if (e.key === 'ArrowLeft') goTo(index - 1);
     if (e.key === 'ArrowRight') goTo(index + 1);
   });
-
-  // swipe support
-  let startX = 0;
-  let isDragging = false;
-
-  track.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-  }, { passive: true });
-
-  track.addEventListener('touchend', (e) => {
-    if (!isDragging) return;
-    const diff = e.changedTouches[0].clientX - startX;
-    if (diff > 40) goTo(index - 1);
-    else if (diff < -40) goTo(index + 1);
-    isDragging = false;
-  });
-
-  track.style.transition = 'transform .4s ease';
 }
 
 // Back to top button
@@ -88,11 +94,24 @@ const sections = navLinks
 function updateActiveNav() {
   let current = sections[0];
   for (const sec of sections) {
-    if (window.scrollY >= sec.offsetTop - 140) current = sec;
+    if (window.scrollY >= sec.offsetTop - 160) current = sec;
   }
   navLinks.forEach(link => {
     link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`);
   });
 }
-window.addEventListener('scroll', updateActiveNav);
+
+let navTicking = false;
+window.addEventListener('scroll', () => {
+  if (navTicking) return;
+  navTicking = true;
+  requestAnimationFrame(() => {
+    updateActiveNav();
+    navTicking = false;
+  });
+});
+
+// Recalculate once all images have finished loading, since late-loading
+// images shift section offsets and would otherwise throw off the highlight.
+window.addEventListener('load', updateActiveNav);
 updateActiveNav();

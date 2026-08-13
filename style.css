@@ -324,13 +324,20 @@ ul{margin:0;padding:0;list-style:none;}
 }
 .carousel-track{
   display:flex;
-  overflow:hidden;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
   border-radius:var(--radius);
   box-shadow:0 30px 60px -20px rgba(20,31,24,0.3);
+  -webkit-overflow-scrolling:touch;
 }
+.carousel-track::-webkit-scrollbar{display:none;}
+.carousel-track{scrollbar-width:none;-ms-overflow-style:none;}
 .carousel-slide{
   flex:0 0 100%;
   min-width:100%;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
 }
 .carousel-slide img{
   width:100%;aspect-ratio:3/2;object-fit:cover;display:block;
