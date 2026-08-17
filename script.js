@@ -1,145 +1,126 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Мобільне меню (Burger Menu)
+  // 1. Мобільне меню
   const burger = document.getElementById('burger');
   const mainNav = document.getElementById('mainNav');
-  const navLinks = mainNav ? mainNav.querySelectorAll('a') : [];
 
   if (burger && mainNav) {
-    burger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      burger.classList.toggle('active');
-      mainNav.classList.toggle('active');
+    burger.addEventListener('click', () => {
+      mainNav.classList.toggle('open');
     });
 
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        burger.classList.remove('active');
-        mainNav.classList.remove('active');
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mainNav.contains(e.target) && !burger.contains(e.target)) {
-        burger.classList.remove('active');
-        mainNav.classList.remove('active');
-      }
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mainNav.classList.remove('open'));
     });
   }
 
-  // 2. Галерея-карусель (Carousel Slider)
+  // 2. Галерея-карусель
   const track = document.getElementById('carouselTrack');
-  const slides = track ? Array.from(track.children) : [];
+  const dotsWrap = document.getElementById('carouselDots');
   const prevBtn = document.getElementById('carouselPrev');
   const nextBtn = document.getElementById('carouselNext');
-  const dotsContainer = document.getElementById('carouselDots');
 
-  if (track && slides.length > 0) {
-    let currentIndex = 0;
+  if (track && dotsWrap) {
+    const slides = Array.from(track.children);
+    let index = 0;
+    let isSyncing = false;
+    let syncTimer = null;
 
-    // Створення крапок навігації
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(index));
-      if (dotsContainer) dotsContainer.appendChild(dot);
+    slides.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.setAttribute('aria-label', `Перейти до фото ${i + 1}`);
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
     });
 
-    const dots = dotsContainer ? Array.from(dotsContainer.children) : [];
+    const dots = Array.from(dotsWrap.children);
 
-    const updateCarousel = () => {
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    };
-
-    const goToSlide = (index) => {
-      currentIndex = index;
-      updateCarousel();
-    };
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateCarousel();
-      });
+    function setActiveDot() {
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
 
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateCarousel();
-      });
-    }
-  }
-
-  // 3. Лайтбокс (Lightbox Modal)
-  const lightboxModal = document.getElementById('lightboxModal');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxPrev = document.getElementById('lightboxPrev');
-  const lightboxNext = document.getElementById('lightboxNext');
-  const triggers = document.querySelectorAll('.lightbox-trigger');
-
-  if (lightboxModal && lightboxImg) {
-    let currentTriggerIndex = 0;
-    const triggerImages = Array.from(triggers);
-
-    const showLightbox = (index) => {
-      currentTriggerIndex = index;
-      lightboxImg.src = triggerImages[currentTriggerIndex].src;
-      lightboxModal.classList.add('active');
-      lightboxModal.setAttribute('aria-hidden', 'false');
-    };
-
-    const hideLightbox = () => {
-      lightboxModal.classList.remove('active');
-      lightboxModal.setAttribute('aria-hidden', 'true');
-    };
-
-    triggerImages.forEach((img, idx) => {
-      img.addEventListener('click', () => showLightbox(idx));
-    });
-
-    if (lightboxClose) lightboxClose.addEventListener('click', hideLightbox);
-
-    if (lightboxNext) {
-      lightboxNext.addEventListener('click', () => {
-        currentTriggerIndex = (currentTriggerIndex + 1) % triggerImages.length;
-        lightboxImg.src = triggerImages[currentTriggerIndex].src;
-      });
+    function clearSyncGuard() {
+      isSyncing = false;
+      if (syncTimer) window.clearTimeout(syncTimer);
     }
 
-    if (lightboxPrev) {
-      lightboxPrev.addEventListener('click', () => {
-        currentTriggerIndex = (currentTriggerIndex - 1 + triggerImages.length) % triggerImages.length;
-        lightboxImg.src = triggerImages[currentTriggerIndex].src;
-      });
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      isSyncing = true;
+      track.scrollTo({ left: track.clientWidth * index, behavior: 'smooth' });
+      setActiveDot();
+      if (syncTimer) window.clearTimeout(syncTimer);
+      syncTimer = window.setTimeout(clearSyncGuard, 900);
     }
 
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) hideLightbox();
-    });
-  }
+    if ('onscrollend' in window) {
+      track.addEventListener('scrollend', clearSyncGuard);
+    }
 
-  // 4. Кнопка «Нагору» (Back to top)
-  const backToTopBtn = document.getElementById('backToTop');
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(index - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(index + 1));
 
-  if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 400) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
+    track.addEventListener('scroll', () => {
+      if (isSyncing) return;
+      const newIndex = Math.round(track.scrollLeft / track.clientWidth);
+      if (newIndex !== index && newIndex >= 0 && newIndex < slides.length) {
+        index = newIndex;
+        setActiveDot();
       }
+    }, { passive: true });
+
+    const carousel = document.getElementById('galleryCarousel');
+    if (carousel) {
+      carousel.setAttribute('tabindex', '0');
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') goTo(index - 1);
+        if (e.key === 'ArrowRight') goTo(index + 1);
+      });
+    }
+  }
+
+  // 3. Кнопка «Нагору»
+  const backToTop = document.getElementById('backToTop');
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
     });
 
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
+  // 4. Активні посилання в навігації при прокручуванні
+  const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
+  const sections = navLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  function updateActiveNav() {
+    let current = sections[0];
+    for (const sec of sections) {
+      if (window.scrollY >= sec.offsetTop - 160) {
+        current = sec;
+      }
+    }
+    if (current) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`);
+      });
+    }
+  }
+
+  let navTicking = false;
+  window.addEventListener('scroll', () => {
+    if (navTicking) return;
+    navTicking = true;
+    requestAnimationFrame(() => {
+      updateActiveNav();
+      navTicking = false;
+    });
+  });
+
+  window.addEventListener('load', updateActiveNav);
+  updateActiveNav();
 });
