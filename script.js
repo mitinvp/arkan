@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Мобільне випадаюче меню
   const burger = document.querySelector('.burger');
   const mainNav = document.querySelector('.main-nav');
   const navLinks = document.querySelectorAll('.main-nav a');
@@ -11,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainNav.classList.toggle('active');
     });
 
-    // Закриття при клиці на пункт меню
+    // Закриваємо меню при натисканні на будь-яке посилання
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         burger.classList.remove('active');
@@ -19,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Закриття при клиці поза меню
+    // Закриваємо меню при кліку за його межами
     document.addEventListener('click', (e) => {
       if (!mainNav.contains(e.target) && !burger.contains(e.target)) {
         burger.classList.remove('active');
@@ -28,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Кнопка "Нагору"
+  // Логіка кнопки "Нагору"
   const backToTopBtn = document.querySelector('.back-to-top');
 
   if (backToTopBtn) {

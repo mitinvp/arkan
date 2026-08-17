@@ -1,6 +1,3 @@
-/* ==========================================================================
-   1. СКИДАННЯ ТА ЗМІННІ (VARIABLES)
-   ========================================================================== */
 :root {
   --bg-dark: #1A2B20;
   --bg-light: #F7F4EE;
@@ -13,14 +10,9 @@
   --accent-hover: #A44E20;
   --accent-gold: #D4A359;
   
-  --border-color: #E2DDD3;
   --radius-sm: 8px;
   --radius-md: 14px;
-  --radius-lg: 20px;
-  
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 12px 36px rgba(0, 0, 0, 0.15);
   
   --font-heading: 'Fraunces', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -45,7 +37,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Захист від розтягування зображень */
 img {
   max-width: 100%;
   height: auto;
@@ -53,29 +44,15 @@ img {
   display: block;
 }
 
-/* ==========================================================================
-   2. ТИПОГРАФІКА ТА ОСНОВНІ ЕЛЕМЕНТИ
-   ========================================================================== */
-h1, h2, h3, h4 {
+h1, h2, h3 {
   font-family: var(--font-heading);
   color: var(--text-dark);
   line-height: 1.25;
-  font-weight: 700;
 }
 
 h2 {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   margin-bottom: 12px;
-}
-
-p {
-  margin-bottom: 1rem;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
 }
 
 .wrap {
@@ -106,9 +83,7 @@ a {
   margin-bottom: 40px;
 }
 
-/* ==========================================================================
-   3. КНОПКИ
-   ========================================================================== */
+/* Кнопки */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -119,31 +94,16 @@ a {
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.25s ease;
-  border: none;
-  gap: 8px;
+  text-decoration: none;
 }
 
-.btn-primary {
-  background-color: var(--accent-primary);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(194, 97, 45, 0.3);
-}
-
-.btn-primary:hover {
-  background-color: var(--accent-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(194, 97, 45, 0.4);
-}
+.btn-primary { background-color: var(--accent-primary); color: #FFFFFF; }
+.btn-primary:hover { background-color: var(--accent-hover); }
 
 .btn-ghost {
   background: transparent;
-  border: 2px solid var(--accent-primary);
-  color: var(--accent-primary);
-}
-
-.btn-ghost:hover {
-  background: var(--accent-primary);
-  color: #FFFFFF;
+  border: 2px solid var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 .btn-line {
@@ -153,35 +113,25 @@ a {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.btn-line:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: #FFFFFF;
-}
+.btn-block { width: 100%; margin-top: 15px; }
 
-.btn-block {
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* ==========================================================================
-   4. ХЕДЕР ТА НАВІГАЦІЯ
-   ========================================================================== */
+/* Хедер (Десктоп) */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 900;
-  background: rgba(26, 43, 32, 0.92);
+  z-index: 1000;
+  background: rgba(26, 43, 32, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 15px 0;
+  padding: 18px 0;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .brand {
@@ -189,34 +139,24 @@ a {
   font-size: 1.5rem;
   font-weight: 700;
   color: #FFFFFF;
-  letter-spacing: 1px;
+  text-decoration: none;
 }
 
-.brand-symbol {
-  color: var(--accent-gold);
-}
+.brand-symbol { color: var(--accent-gold); }
 
 .main-nav {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .main-nav a {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.95rem;
+  text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.main-nav a:hover {
-  color: var(--accent-gold);
-}
-
-.nav-cta {
-  padding: 8px 16px;
-  font-size: 0.9rem;
-  border-color: var(--accent-gold);
-  color: var(--accent-gold);
-}
+.main-nav a:hover { color: var(--accent-gold); }
 
 .burger {
   display: none;
@@ -225,7 +165,7 @@ a {
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 5px;
+  padding: 4px;
 }
 
 .burger span {
@@ -235,9 +175,7 @@ a {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* ==========================================================================
-   5. HERO SECTION
-   ========================================================================== */
+/* Hero */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -260,45 +198,22 @@ a {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26,43,32,0.8) 0%, rgba(26,43,32,0.65) 60%, rgba(26,43,32,0.95) 100%);
+  background: linear-gradient(180deg, rgba(26,43,32,0.7) 0%, rgba(26,43,32,0.85) 100%);
   z-index: -1;
-}
-
-/* Приховано бейдж "Швидкісний Wi-Fi..." */
-.badge-eco {
-  display: none !important;
 }
 
 .hero-title {
   font-size: clamp(3rem, 7vw, 5.5rem);
   letter-spacing: 4px;
   color: #FFFFFF;
-  margin: 10px 0;
 }
 
-.hero-tagline {
-  font-size: 1.3rem;
-  color: var(--accent-gold);
-  font-weight: 500;
-}
-
-.hero-line {
-  width: 60px;
-  height: 3px;
-  background: var(--accent-primary);
-  margin: 20px auto;
-}
-
-.hero-lede {
-  max-width: 680px;
-  margin: 0 auto 30px;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.9);
-}
+.hero-tagline { font-size: 1.3rem; color: var(--accent-gold); }
+.hero-line { width: 60px; height: 3px; background: var(--accent-primary); margin: 20px auto; }
+.hero-lede { max-width: 680px; margin: 0 auto 30px; font-size: 1.1rem; }
 
 .hero-actions {
   display: flex;
-  flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
   margin-bottom: 50px;
@@ -318,33 +233,24 @@ a {
   display: block;
   font-family: var(--font-heading);
   font-size: 2rem;
-  font-weight: 700;
   color: var(--accent-gold);
 }
 
-/* ==========================================================================
-   6. КОРПУСИ ТА КОНТЕНТНІ БЛОКИ
-   ========================================================================== */
-.about-grid {
+/* Блоки контенту */
+.about-grid, .spa-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
 }
 
-.photo-frame img {
+.photo-frame img, .spa-photo img {
   width: 100%;
   height: 380px;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  object-fit: cover;
 }
 
-.corpus-list {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-}
+.corpus-list { display: flex; flex-direction: column; gap: 40px; }
 
 .corpus {
   display: grid;
@@ -355,174 +261,83 @@ a {
   box-shadow: var(--shadow-md);
 }
 
-.corpus.reverse {
-  direction: rtl;
-}
+.corpus.reverse { direction: rtl; }
+.corpus.reverse .corpus-body { direction: ltr; }
 
-.corpus.reverse .corpus-body {
-  direction: ltr;
-}
+.corpus-media img { width: 100%; height: 100%; min-height: 320px; }
+.corpus-body { padding: 35px; }
 
-.corpus-media {
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-  overflow: hidden;
-}
+.corpus-price { margin-top: 15px; font-weight: bold; }
+.corpus-price span { font-size: 1.4rem; color: var(--accent-primary); }
 
-.corpus-media img {
-  width: 100%;
-  height: 100%;
-  min-height: 320px;
-  object-fit: cover;
-}
+.spa { background: var(--bg-dark); color: var(--text-light); }
+.spa h2 { color: #FFFFFF; }
 
-.corpus-body {
-  padding: 35px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.spa {
+.site-footer {
   background: var(--bg-dark);
   color: var(--text-light);
+  padding: 30px 0;
+  text-align: center;
 }
 
-.spa h2 {
-  color: #FFFFFF;
-}
-
-.spa-grid, .food-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 50px;
-  align-items: center;
-}
-
-.spa-photo img, .food-photo img {
-  width: 100%;
-  height: 360px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  object-fit: cover;
-}
-
-/* ==========================================================================
-   7. КНОПКА «НАГОРУ» ТА Мобільна панель
-   ========================================================================== */
+/* Кнопка "Нагору" */
 .back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background-color: #C2612D !important;
-  color: #FFFFFF !important;
-  border: 2px solid #FFFFFF;
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 1;
+  background-color: var(--accent-primary);
+  color: #FFFFFF;
+  border: none;
+  font-size: 20px;
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
-  z-index: 9999 !important;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  z-index: 999;
 }
 
-.back-to-top.show {
-  display: flex !important;
-}
+.back-to-top.show { display: flex; }
 
-.back-to-top:hover {
-  background-color: #A44E20 !important;
-  transform: translateY(-4px);
-}
+/* Адаптивність під мобільні пристрої */
+.mobile-action-bar { display: none; }
 
-.mobile-action-bar {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--bg-dark);
-  padding: 12px 16px;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
-  z-index: 990;
-  gap: 12px;
-}
-
-.mob-btn {
-  flex: 1;
-  padding: 12px;
-  border-radius: var(--radius-sm);
-  text-align: center;
-  font-weight: 700;
-  font-size: 0.95rem;
-}
-
-.mob-btn.call { background: var(--accent-primary); color: #FFF; }
-.mob-btn.msg { background: rgba(255,255,255,0.15); color: #FFF; }
-
-/* ==========================================================================
-   8. АДАПТИВНІСТЬ ТА МЕДІА-ЗАПИТИ (MOBILE)
-   ========================================================================== */
 @media (max-width: 992px) {
-  .about-grid, .spa-grid, .food-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .corpus {
-    grid-template-columns: 1fr;
-  }
-  
-  .corpus.reverse {
-    direction: ltr;
-  }
+  .about-grid, .spa-grid, .corpus { grid-template-columns: 1fr; }
+  .corpus.reverse { direction: ltr; }
 }
 
 @media (max-width: 768px) {
-  /* Бургер-меню */
-  .burger {
-    display: flex;
-    z-index: 950;
+  body {
+    padding-bottom: 60px; /* Відступ під мобільну панель */
   }
 
-  .burger.active span:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
+  .burger { display: flex; }
 
-  .burger.active span:nth-child(2) {
-    opacity: 0;
-  }
+  .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .burger.active span:nth-child(2) { opacity: 0; }
+  .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  .burger.active span:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  /* Випадаюче меню */
+  /* Випадаюче меню прив'язано прямо під хедер */
   .main-nav {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    top: 60px;
+    position: absolute;
+    top: 100%;
     left: 0;
     right: 0;
     background: rgba(26, 43, 32, 0.98);
     backdrop-filter: blur(12px);
-    padding: 20px 24px 30px;
-    gap: 16px;
-    transform: translateY(-120%);
+    padding: 20px 24px;
+    gap: 12px;
+    transform: translateY(-10px);
     opacity: 0;
     visibility: hidden;
-    transition: transform 0.35s ease, opacity 0.35s ease, visibility 0.35s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    z-index: 940;
   }
 
   .main-nav.active {
@@ -537,38 +352,40 @@ a {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .nav-cta {
-    display: none;
-  }
+  .nav-cta { display: none; }
 
   .mobile-action-bar {
     display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--bg-dark);
+    padding: 12px;
+    z-index: 990;
+    gap: 10px;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
   }
 
-  /* Виправлення пропорцій фото на мобільних */
-  .corpus-media {
-    min-height: auto;
+  .mob-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .mob-btn.call { background: var(--accent-primary); color: #FFF; }
+  .mob-btn.msg { background: rgba(255,255,255,0.2); color: #FFF; }
+
+  .corpus-media img, .photo-frame img, .spa-photo img {
     height: 240px;
-  }
-
-  .corpus-media img,
-  .photo-frame img,
-  .spa-photo img,
-  .food-photo img {
-    height: 240px !important;
-    width: 100% !important;
-    object-fit: cover !important;
+    width: 100%;
   }
 
   .back-to-top {
-    bottom: 85px;
+    bottom: 80px;
     right: 16px;
-    width: 46px;
-    height: 46px;
-    font-size: 20px;
-  }
-
-  .hero-title {
-    font-size: 2.8rem;
   }
 }

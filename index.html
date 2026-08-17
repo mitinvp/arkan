@@ -4,11 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Карпатський Затишок — Готельний комплекс</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Хедер та навігація -->
   <header class="site-header">
     <div class="wrap header-inner">
       <a href="#" class="brand">КАРПАТИ<span class="brand-symbol">•</span></a>
@@ -32,9 +36,8 @@
     </div>
   </header>
 
-  <!-- Головна секція (Hero) -->
   <section class="hero">
-    <div class="hero-bg" style="background-image: url('images/hero.jpg');"></div>
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');"></div>
     <div class="hero-overlay"></div>
     <div class="wrap">
       <h1 class="hero-title">КАРПАТИ</h1>
@@ -64,7 +67,6 @@
     </div>
   </section>
 
-  <!-- Про нас -->
   <section id="about" class="section">
     <div class="wrap">
       <div class="about-grid">
@@ -72,33 +74,14 @@
           <span class="eyebrow">Про наш комплекс</span>
           <h2>Відпочинок, що відновлює сили</h2>
           <p class="section-lede">Ми створили простір, де сучасний комфорт гармонійно поєднується з недоторканою природою Карпат.</p>
-          
-          <div class="features-mini-grid">
-            <div class="feature-item">
-              <span class="feature-icon">🌲</span>
-              <div>
-                <strong>Чисте повітря</strong>
-                <p>Екологічно чиста зона навколо</p>
-              </div>
-            </div>
-            <div class="feature-item">
-              <span class="feature-icon">♨️</span>
-              <div>
-                <strong>SPA та Чани</strong>
-                <p>Гарячі басейни під відкритим небом</p>
-              </div>
-            </div>
-          </div>
         </div>
-
         <div class="photo-frame">
-          <img src="images/about.jpg" alt="Про нас">
+          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Про нас">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Проживання / Номери -->
   <section id="stay" class="section">
     <div class="wrap">
       <span class="eyebrow">Варіанти проживання</span>
@@ -106,40 +89,25 @@
       <p class="section-lede">Просторі номери та окремі котеджі з чудовим панорамним видом на гори.</p>
 
       <div class="corpus-list">
-        <!-- Корпус 1 -->
         <article class="corpus">
           <div class="corpus-media">
-            <img src="images/room-1.jpg" alt="Номер Люкс з панорамою">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Номер Люкс">
           </div>
           <div class="corpus-body">
-            <span class="corpus-badge">Панорамний вид</span>
             <h3>Номер Люкс з балконом</h3>
             <p>Двокімнатний номер із двоспальним ліжком, власною терасою та панорамними вікнами на гірський хребет.</p>
-            <div class="amenity-tags">
-              <span>2-4 гості</span>
-              <span>Тераса</span>
-              <span>King-size ліжко</span>
-            </div>
             <div class="corpus-price">від <span>3 500 ₴</span> / ніч</div>
             <a href="#contacts" class="btn btn-primary btn-block">Забронювати</a>
           </div>
         </article>
 
-        <!-- Корпус 2 -->
         <article class="corpus reverse">
           <div class="corpus-media">
-            <img src="images/cottage-1.jpg" alt="Окремий Шале котедж">
+            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" alt="Котедж Шале">
           </div>
           <div class="corpus-body">
-            <span class="corpus-badge">Максимальний затишок</span>
             <h3>Котедж Шале з каміном</h3>
             <p>Двоповерховий дерев'яний котедж із справжнім каміном, власною кухнею та зоною барбекю на подвір'ї.</p>
-            <div class="amenity-tags">
-              <span>до 6 гостей</span>
-              <span>Камін</span>
-              <span>Кухня</span>
-              <span>BBQ</span>
-            </div>
             <div class="corpus-price">від <span>6 000 ₴</span> / ніч</div>
             <a href="#contacts" class="btn btn-primary btn-block">Забронювати</a>
           </div>
@@ -148,224 +116,66 @@
     </div>
   </section>
 
-  <!-- SPA та Релакс -->
   <section id="spa" class="section spa">
     <div class="wrap">
       <div class="spa-grid">
         <div>
           <span class="eyebrow" style="color: var(--accent-gold);">Релаксація</span>
           <h2>SPA-комплекс та карпатські чани</h2>
-          <p>Відновіть енергію після тривалих прогулянок у нашому SPA-центрі.</p>
-          
-          <ul class="spa-features">
-            <li><span>✨</span> Гуцульські чани на дровах</li>
-            <li><span>✨</span> Карпатська баня та фінська сауна</li>
-            <li><span>✨</span> Підігріваємий відкритий басейн</li>
-            <li><span>✨</span> Масажний кабінет та фітотерапія</li>
-          </ul>
+          <p>Відновіть енергію після тривалих прогулянок у нашому SPA-центрі під відкритим небом.</p>
         </div>
         <div class="spa-photo">
-          <img src="images/spa.jpg" alt="SPA комплекс">
+          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="SPA">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Ресторан -->
   <section id="food" class="section">
     <div class="wrap">
-      <div class="food-grid">
-        <div class="food-photo">
-          <img src="images/restaurant.jpg" alt="Ресторан">
+      <div class="about-grid">
+        <div class="photo-frame">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Ресторан">
         </div>
         <div>
           <span class="eyebrow">Гастрономія</span>
-          <h2>Автентична гуцульська та європейська кухня</h2>
-          <p>Наші шеф-кухарі готують із локальних екологічних продуктів: карпатських грибів, свіжого баношу та гірської форелі.</p>
-        </div>
-      </div>
-
-      <div class="menu-block">
-        <h3 class="menu-heading">Популярні страви</h3>
-        <div class="dishes-grid">
-          <div class="dish-card">
-            <h4>Гуцульський Банош</h4>
-            <p>З бринзою та шкварками</p>
-          </div>
-          <div class="dish-card">
-            <h4>Карпатська Форель</h4>
-            <p>Запечена на мангалі з травами</p>
-          </div>
-          <div class="dish-card">
-            <h4>Грибний Юшка</h4>
-            <p>З білих карпатських грибів</p>
-          </div>
+          <h2>Автентична карпатська кухня</h2>
+          <p class="section-lede">Страви з локальних екологічних продуктів: білі гриби, свіжа форель та гуцульський банош.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Відгуки -->
-  <section id="reviews" class="section reviews">
+  <section id="reviews" class="section" style="background: var(--bg-card);">
     <div class="wrap">
-      <div class="google-reviews-header">
-        <div>
-          <span class="eyebrow">Враження гостей</span>
-          <h2>Що про нас кажуть</h2>
-        </div>
-        <div class="google-badge">
-          <div class="google-score">
-            <span>4.9</span>
-            <div class="stars">★★★★★</div>
-          </div>
-          <small>на основі 150+ відгуків Google</small>
-        </div>
-      </div>
-
-      <div class="reviews-grid">
-        <div class="google-card">
-          <div class="rev-user">
-            <div class="avatar">О</div>
-            <div>
-              <strong>Олена В.</strong>
-              <span class="rev-stars">★★★★★</span>
-            </div>
-          </div>
-          <p>Чудове місце для сімейного відпочинку! Краєвиди просто неймовірні, а чани — це окрема любов.</p>
-        </div>
-
-        <div class="google-card">
-          <div class="rev-user">
-            <div class="avatar">М</div>
-            <div>
-              <strong>Максим К.</strong>
-              <span class="rev-stars">★★★★★</span>
-            </div>
-          </div>
-          <p>Дуже сервісні та привітні люди. Номери чисті, сніданки смачні. Обов'язково повернемося знов!</p>
-        </div>
-      </div>
+      <span class="eyebrow">Враження гостей</span>
+      <h2>Відгуки</h2>
+      <p class="section-lede">«Неймовірне місце! Сервіс на найвищому рівні, краєвиди заворожують.» — Олена, Київ</p>
     </div>
   </section>
 
-  <!-- Галерея / Карусель -->
-  <section class="section">
-    <div class="wrap">
-      <span class="eyebrow">Атмосфера</span>
-      <h2>Галерея комплексу</h2>
-      
-      <div class="carousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="images/gallery-1.jpg" alt="Галерея 1"></div>
-          <div class="carousel-slide"><img src="images/gallery-2.jpg" alt="Галерея 2"></div>
-          <div class="carousel-slide"><img src="images/gallery-3.jpg" alt="Галерея 3"></div>
-        </div>
-        <button class="carousel-btn prev" aria-label="Попередній слайд">❮</button>
-        <button class="carousel-btn next" aria-label="Наступний слайд">❯</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Контакти та Як доїхати -->
   <section id="contacts" class="section">
     <div class="wrap">
-      <div class="contact-grid">
-        <div>
-          <span class="eyebrow">Зв'язок</span>
-          <h2>Забронюйте ваш відпочинок</h2>
-          
-          <div class="contact-block">
-            <span class="contact-label">Телефон / Бронювання:</span>
-            <a href="tel:+380991234567" class="phone-link">+38 (099) 123-45-67</a>
-          </div>
-
-          <div class="contact-block">
-            <span class="contact-label">Месенджери:</span>
-            <div class="messenger-buttons">
-              <a href="https://t.me/example" target="_blank" class="btn-msg tg">Telegram</a>
-              <a href="viber://chat?number=%2B380991234567" class="btn-msg vb">Viber</a>
-            </div>
-          </div>
-
-          <div class="route-section">
-            <span class="contact-label">Локація:</span>
-            <p class="address-text">смт. Ворохта, вул. Гірська, 12, Івано-Франківська обл.</p>
-            <div class="route-btns">
-              <a href="https://maps.google.com" target="_blank" class="btn-route gmaps">Google Maps</a>
-              <a href="https://waze.com" target="_blank" class="btn-route waze">Waze</a>
-              <a href="https://maps.apple.com" target="_blank" class="btn-route apple">Apple Maps</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-panel">
-          <h3>Залишити заявку</h3>
-          <p>Ми зателефонуємо вам протягом 15 хвилин для підтвердження бронювання.</p>
-          <form onsubmit="event.preventDefault(); alert('Дякуємо! Заявку прийнято.');">
-            <div style="margin-bottom: 15px;">
-              <input type="text" placeholder="Ваше ім'я" required style="width:100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
-            </div>
-            <div style="margin-bottom: 15px;">
-              <input type="tel" placeholder="Номер телефону" required style="width:100%; padding: 12px; border: 1px solid var(--border-color); border-radius: var(--radius-sm);">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Надіслати</button>
-          </form>
-        </div>
-      </div>
+      <span class="eyebrow">Зв'язок</span>
+      <h2>Контакти та локація</h2>
+      <p>смт. Ворохта, вул. Гірська, 12, Івано-Франківська обл.</p>
+      <p style="margin-top: 10px;"><strong>Телефон:</strong> <a href="tel:+380991234567" style="color: var(--accent-primary);">+38 (099) 123-45-67</a></p>
     </div>
   </section>
 
-  <!-- Часті запитання (FAQ) -->
-  <section class="section" style="background: var(--bg-card);">
-    <div class="wrap">
-      <span class="eyebrow">Часті запитання</span>
-      <h2>Корисна інформація</h2>
-
-      <div class="faq-list">
-        <details class="faq-item">
-          <summary>Який час заїзду та виїзду?</summary>
-          <p>Заїзд можливий з 14:00, виїзд — до 12:00.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Чи можна приїжджати з домашніми тваринами?</summary>
-          <p>Так, ми дружелюбні до тварин! Будь ласка, повідомте про це заздалегідь при бронюванні.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Чи включено сніданок у вартість?</summary>
-          <p>Так, у вартість кожного номера включено комплексний карпатський сніданок.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Підніжжя (Footer) -->
   <footer class="site-footer">
     <div class="wrap">
-      <p class="brand">КАРПАТИ<span class="brand-symbol">•</span></p>
-      <p class="footer-copy">© 2026 Карпатський Затишок. Всі права захищено.</p>
+      <p>© 2026 Карпатський Затишок. Всі права захищено.</p>
     </div>
   </footer>
 
-  <!-- Lightbox Modal (для галереї) -->
-  <div class="lightbox-modal">
-    <button class="lightbox-close">&times;</button>
-    <button class="lightbox-prev">❮</button>
-    <div class="lightbox-content">
-      <img src="" alt="Перегляд">
-    </div>
-    <button class="lightbox-next">❯</button>
-  </div>
-
-  <!-- Кнопка «Нагору» -->
   <button class="back-to-top" aria-label="Нагору">↑</button>
 
-  <!-- Нижня мобільна панель швидких дій -->
   <div class="mobile-action-bar">
     <a href="tel:+380991234567" class="mob-btn call">Зателефонувати</a>
     <a href="#contacts" class="mob-btn msg">Забронювати</a>
   </div>
 
-  <!-- Скрипти -->
   <script src="script.js"></script>
 </body>
 </html>
