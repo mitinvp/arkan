@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mainNav.classList.toggle('active');
     });
 
-    // Закриваємо меню при натисканні на будь-яке посилання
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
         burger.classList.remove('active');
@@ -18,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Закриваємо меню при кліку за його межами
     document.addEventListener('click', (e) => {
       if (!mainNav.contains(e.target) && !burger.contains(e.target)) {
         burger.classList.remove('active');
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Логіка кнопки "Нагору"
   const backToTopBtn = document.querySelector('.back-to-top');
 
   if (backToTopBtn) {

@@ -83,7 +83,6 @@ h2 {
   margin-bottom: 40px;
 }
 
-/* Кнопки */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -115,7 +114,7 @@ h2 {
 
 .btn-block { width: 100%; margin-top: 15px; }
 
-/* Хедер (Десктоп) */
+/* Хедер */
 .site-header {
   position: fixed;
   top: 0;
@@ -136,10 +135,11 @@ h2 {
 
 .brand {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #FFFFFF;
   text-decoration: none;
+  letter-spacing: 2px;
 }
 
 .brand-symbol { color: var(--accent-gold); }
@@ -204,7 +204,7 @@ h2 {
 
 .hero-title {
   font-size: clamp(3rem, 7vw, 5.5rem);
-  letter-spacing: 4px;
+  letter-spacing: 6px;
   color: #FFFFFF;
 }
 
@@ -236,7 +236,7 @@ h2 {
   color: var(--accent-gold);
 }
 
-/* Блоки контенту */
+/* Секції */
 .about-grid, .spa-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -280,7 +280,6 @@ h2 {
   text-align: center;
 }
 
-/* Кнопка "Нагору" */
 .back-to-top {
   position: fixed;
   bottom: 30px;
@@ -301,7 +300,6 @@ h2 {
 
 .back-to-top.show { display: flex; }
 
-/* Адаптивність під мобільні пристрої */
 .mobile-action-bar { display: none; }
 
 @media (max-width: 992px) {
@@ -311,7 +309,7 @@ h2 {
 
 @media (max-width: 768px) {
   body {
-    padding-bottom: 60px; /* Відступ під мобільну панель */
+    padding-bottom: 60px;
   }
 
   .burger { display: flex; }
@@ -320,7 +318,6 @@ h2 {
   .burger.active span:nth-child(2) { opacity: 0; }
   .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-  /* Випадаюче меню прив'язано прямо під хедер */
   .main-nav {
     display: flex;
     flex-direction: column;
