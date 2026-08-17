@@ -42,3 +42,22 @@ if (backToTop) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
+
+// Highlight active navigation menu link on scroll
+const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
+const sections = navLinks
+  .map(link => document.querySelector(link.getAttribute('href')))
+  .filter(Boolean);
+
+function updateActiveNav() {
+  let current = sections[0];
+  for (const sec of sections) {
+    if (window.scrollY >= sec.offsetTop - 160) current = sec;
+  }
+  navLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`);
+  });
+}
+
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
