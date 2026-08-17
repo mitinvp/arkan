@@ -1,125 +1,158 @@
-// Mobile navigation menu toggle
-const burger = document.getElementById('burger');
-const mainNav = document.getElementById('mainNav');
+document.addEventListener('DOMContentLoaded', () => {
+  /* ==========================================================================
+     1. КНОПКА «НАГОРУ» (BACK TO TOP)
+     ========================================================================== */
+  const backToTopBtn = document.getElementById('backToTop');
 
-if (burger && mainNav) {
-  burger.addEventListener('click', () => {
-    mainNav.classList.toggle('open');
-  });
+  if (backToTopBtn) {
+    // Відстежуємо прокрутку сторінки
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show');
+      } else {
+        backToTopBtn.classList.remove('show');
+      }
+    });
 
-  mainNav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mainNav.classList.remove('open'));
-  });
-}
-
-// Carousel slider for gallery
-const track = document.getElementById('carouselTrack');
-const prevBtn = document.getElementById('carouselPrev');
-const nextBtn = document.getElementById('carouselNext');
-
-if (track && prevBtn && nextBtn) {
-  prevBtn.addEventListener('click', () => {
-    track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
-  });
-
-  nextBtn.addEventListener('click', () => {
-    track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
-  });
-}
-
-// ===== LIGHTBOX GALLERY FUNCTIONALITY =====
-const lightboxTriggers = document.querySelectorAll('.lightbox-trigger');
-const lightboxModal = document.getElementById('lightboxModal');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxCaption = document.getElementById('lightboxCaption');
-const lightboxClose = document.getElementById('lightboxClose');
-const lightboxPrev = document.getElementById('lightboxPrev');
-const lightboxNext = document.getElementById('lightboxNext');
-
-let currentImgIndex = 0;
-const imagesList = Array.from(lightboxTriggers).map(img => ({
-  src: img.src,
-  alt: img.alt || 'Фото комплексу Аркан'
-}));
-
-function openLightbox(index) {
-  currentImgIndex = index;
-  lightboxImg.src = imagesList[currentImgIndex].src;
-  lightboxCaption.textContent = imagesList[currentImgIndex].alt;
-  lightboxModal.classList.add('active');
-  lightboxModal.setAttribute('aria-hidden', 'false');
-}
-
-function closeLightbox() {
-  lightboxModal.classList.remove('active');
-  lightboxModal.setAttribute('aria-hidden', 'true');
-}
-
-lightboxTriggers.forEach((trigger, index) => {
-  trigger.addEventListener('click', () => openLightbox(index));
-});
-
-if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-
-if (lightboxPrev) {
-  lightboxPrev.addEventListener('click', () => {
-    currentImgIndex = (currentImgIndex - 1 + imagesList.length) % imagesList.length;
-    openLightbox(currentImgIndex);
-  });
-}
-
-if (lightboxNext) {
-  lightboxNext.addEventListener('click', () => {
-    currentImgIndex = (currentImgIndex + 1) % imagesList.length;
-    openLightbox(currentImgIndex);
-  });
-}
-
-// Close lightbox on backdrop click or ESC key
-if (lightboxModal) {
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) closeLightbox();
-  });
-}
-
-document.addEventListener('keydown', (e) => {
-  if (!lightboxModal.classList.contains('active')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft' && lightboxPrev) lightboxPrev.click();
-  if (e.key === 'ArrowRight' && lightboxNext) lightboxNext.click();
-});
-
-// Back to top button visibility
-const backToTop = document.getElementById('backToTop');
-if (backToTop) {
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      backToTop.style.display = 'block';
-    } else {
-      backToTop.style.display = 'none';
-    }
-  });
-
-  backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
-
-// Highlight active navigation menu link on scroll
-const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
-const sections = navLinks
-  .map(link => document.querySelector(link.getAttribute('href')))
-  .filter(Boolean);
-
-function updateActiveNav() {
-  let current = sections[0];
-  for (const sec of sections) {
-    if (window.scrollY >= sec.offsetTop - 160) current = sec;
+    // Плавний скролл нагору при кліку
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
-  navLinks.forEach(link => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`);
-  });
-}
 
-window.addEventListener('scroll', updateActiveNav);
-window.addEventListener('load', updateActiveNav);
+  /* ==========================================================================
+     2. МОБІЛЬНЕ МЕНЮ (BURGER MENU)
+     ========================================================================== */
+  const burger = document.getElementById('burger');
+  const mainNav = document.getElementById('mainNav');
+
+  if (burger && mainNav) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      mainNav.classList.toggle('active');
+    });
+
+    // Закриваємо меню при кліку на будь-яке посилання
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        mainNav.classList.remove('active');
+      });
+    });
+  }
+
+  /* ==========================================================================
+     3. КАРУСЕЛЬ ГАЛЕРЕЇ (CAROUSEL SLIDER)
+     ========================================================================== */
+  const track = document.getElementById('carouselTrack');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  const dotsContainer = document.getElementById('carouselDots');
+
+  if (track) {
+    const slides = Array.from(track.children);
+    let currentIndex = 0;
+
+    // Створення крапок навігації
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('carousel-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    const updateDots = (index) => {
+      if (!dotsContainer) return;
+      const dots = dotsContainer.querySelectorAll('.carousel-dot');
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    };
+
+    const goToSlide = (index) => {
+      if (index < 0) index = slides.length - 1;
+      if (index >= slides.length) index = 0;
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots(currentIndex);
+    };
+
+    if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+  }
+
+  /* ==========================================================================
+     4. ГАЛЕРЕЯ / МОДАЛЬНЕ ВІКНО (LIGHTBOX)
+     ========================================================================== */
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const triggers = document.querySelectorAll('.lightbox-trigger');
+
+  if (lightboxModal && triggers.length > 0) {
+    let currentImgIndex = 0;
+    const imagesList = Array.from(triggers);
+
+    const openLightbox = (index) => {
+      currentImgIndex = index;
+      const imgEl = imagesList[currentImgIndex];
+      lightboxImg.src = imgEl.src;
+      lightboxImg.alt = imgEl.alt || '';
+      if (lightboxCaption) lightboxCaption.textContent = imgEl.alt || '';
+      
+      lightboxModal.classList.add('active');
+      lightboxModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden'; // Заборонити прокрутку фону
+    };
+
+    const closeLightbox = () => {
+      lightboxModal.classList.remove('active');
+      lightboxModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    triggers.forEach((img, index) => {
+      img.addEventListener('click', () => openLightbox(index));
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+
+    if (lightboxPrev) {
+      lightboxPrev.addEventListener('click', () => {
+        let newIndex = currentImgIndex - 1;
+        if (newIndex < 0) newIndex = imagesList.length - 1;
+        openLightbox(newIndex);
+      });
+    }
+
+    if (lightboxNext) {
+      lightboxNext.addEventListener('click', () => {
+        let newIndex = currentImgIndex + 1;
+        if (newIndex >= imagesList.length) newIndex = 0;
+        openLightbox(newIndex);
+      });
+    }
+
+    // Закриття при кліку на темний фон
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+
+    // Закриття клавішею Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  }
+});
