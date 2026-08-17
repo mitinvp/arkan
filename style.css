@@ -45,6 +45,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Захист від розтягування всіх зображень */
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
 /* ==========================================================================
    2. ТИПОГРАФІКА ТА БАЗОВІ ЕЛЕМЕНТИ
    ========================================================================== */
@@ -254,15 +262,9 @@ a {
   z-index: -1;
 }
 
+/* Вилучення плашки «Швидкісний Wi-Fi...» */
 .badge-eco {
-  display: inline-block;
-  background: rgba(212, 163, 89, 0.2);
-  border: 1px solid var(--accent-gold);
-  color: var(--accent-gold);
-  padding: 6px 16px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  margin-bottom: 15px;
+  display: none !important;
 }
 
 .hero-title {
@@ -351,7 +353,7 @@ a {
 
 .photo-frame img {
   width: 100%;
-  height: auto;
+  height: 380px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   object-fit: cover;
@@ -381,6 +383,13 @@ a {
 
 .corpus.reverse .corpus-body {
   direction: ltr;
+}
+
+.corpus-media {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  overflow: hidden;
 }
 
 .corpus-media img {
@@ -453,8 +462,10 @@ a {
 
 .spa-photo img, .food-photo img {
   width: 100%;
+  height: 360px;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
+  object-fit: cover;
 }
 
 .spa-features {
@@ -650,6 +661,7 @@ a {
 .lightbox-content img {
   max-width: 90vw;
   max-height: 85vh;
+  object-fit: contain;
   border-radius: var(--radius-sm);
 }
 
@@ -794,7 +806,7 @@ a {
 }
 
 /* ==========================================================================
-   13. КНОПКА «НАГОРУ» (ПОВНІСТЮ ВІДНОВЛЕНА)
+   13. КНОПКА «НАГОРУ»
    ========================================================================== */
 .back-to-top {
   position: fixed;
@@ -861,7 +873,7 @@ a {
 .mob-btn.msg { background: rgba(255,255,255,0.15); color: #FFF; }
 
 /* ==========================================================================
-   15. МЕДІА-ЗАПИТИ (MOBILE RESPONSIVE)
+   15. МЕДІА-ЗАПИТИ (МОБІЛЬНІ НАЛАШТУВАННЯ ТА ФОТО)
    ========================================================================== */
 @media (max-width: 992px) {
   .about-grid, .spa-grid, .food-grid, .contact-grid {
@@ -891,6 +903,26 @@ a {
     display: flex;
   }
 
+  /* Адаптація фото для мобільних екранів без розтягування */
+  .corpus-media {
+    min-height: auto;
+    height: 240px;
+  }
+
+  .corpus-media img,
+  .photo-frame img,
+  .spa-photo img,
+  .food-photo img {
+    height: 240px !important;
+    width: 100% !important;
+    object-fit: cover !important;
+  }
+
+  .carousel-slide img {
+    height: 260px !important;
+    object-fit: cover !important;
+  }
+
   .back-to-top {
     bottom: 85px;
     right: 16px;
@@ -901,9 +933,5 @@ a {
 
   .hero-title {
     font-size: 2.8rem;
-  }
-
-  .carousel-slide img {
-    height: 320px;
   }
 }
