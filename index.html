@@ -1,181 +1,509 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Аркан — Готельний комплекс у Карпатах</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>АРКАН — відпочинковий комплекс у Верховині | Гуцульщина, Карпати</title>
+<meta name="description" content="Затишний відпочинковий комплекс «Аркан» у Верховині: 3 корпуси, гуцульська колиба, СПА з басейном, хамам та закрита територія. Бронюйте відпочинок у серці Гуцульщини!">
+<meta property="og:title" content="АРКАН — відпочинковий комплекс у Верховині, Карпати">
+<meta property="og:description" content="Три корпуси проживання, СПА з басейном, колиба на 230 осіб і закрита територія в серці Гуцульщини.">
+<meta property="og:image" content="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-14.jpg">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231A2B20'/%3E%3Cpath d='M50 15 L80 70 L20 70 Z M50 35 L68 70 L32 70 Z' fill='%23C2612D'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Structured Data (SEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Resort",
+  "name": "Відпочинковий комплекс Аркан",
+  "image": "https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-14.jpg",
+  "telephone": "+380977712704",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "смт Верховина",
+    "addressRegion": "Івано-Франківська область",
+    "addressCountry": "UA"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 48.1542,
+    "longitude": 24.7980
+  },
+  "hasMap": "https://www.google.com/maps/place/Аркан/@48.1542,24.7980,15z",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.1",
+    "reviewCount": "837"
+  },
+  "priceRange": "1500 - 2000 UAH"
+}
+</script>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a href="#" class="brand">АРКАН<span class="brand-symbol">•</span></a>
-      
-      <nav class="main-nav">
-        <a href="#about">Про нас</a>
-        <a href="#stay">Номери</a>
-        <a href="#spa">SPA & Чани</a>
-        <a href="#food">Ресторан</a>
-        <a href="#reviews">Відгуки</a>
-        <a href="#contacts">Контакти</a>
-      </nav>
+<div class="grain"></div>
 
-      <a href="#contacts" class="btn btn-ghost nav-cta">Забронювати</a>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-symbol">❖</span> АРКАН
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#about">Про комплекс</a>
+      <a href="#stay">Проживання</a>
+      <a href="#spa">СПА</a>
+      <a href="#food">Колиба</a>
+      <a href="#activities">Дозвілля</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#faq">Часті питання</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+    <a href="tel:+380977712704" class="btn btn-ghost nav-cta">📞 +38 (097) 771 27 04</a>
+    <button class="burger" id="burger" aria-label="Меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-      <button class="burger" aria-label="Відкрити меню">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');"></div>
-    <div class="hero-overlay"></div>
-    <div class="wrap">
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" style="background-image:url('https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-14.jpg')"></div>
+  <div class="hero-overlay"></div>
+  <div class="wrap hero-inner">
+    <div class="badge-eco">📶 Швидкісний Wi-Fi · Затишок та Комфорт</div>
+    <p class="eyebrow">селище Верховина · Гуцульщина</p>
+    
+    <div class="brand-hero">
+      <span class="hero-ornament-top">❖ ❖ ❖</span>
       <h1 class="hero-title">АРКАН</h1>
-      <p class="hero-tagline">Готельний комплекс у серці Карпат</p>
+      <p class="hero-tagline">Відпочинковий комплекс у серці Карпат</p>
       <div class="hero-line"></div>
-      <p class="hero-lede">Автентичний відпочинок, панорамні види на гори, затишні котеджі та справжній карпатський релакс.</p>
+    </div>
+
+    <p class="hero-lede">Три затишні корпуси, гуцульська колиба, СПА з теплим басейном та закрита територія. Місце, розраховане і на тихий сімейний відпочинок, і на велике свято до 230 гостей.</p>
+    
+    <div class="hero-actions">
+      <a href="#stay" class="btn btn-primary">Обрати номер</a>
+      <a href="https://t.me/+380977712704" target="_blank" class="btn btn-line">💬 Написати в Telegram</a>
+      <a href="viber://chat?number=%2B380977712704" class="btn btn-line">💜 Написати у Viber</a>
+    </div>
+
+    <div class="hero-stats">
+      <div><span>70</span>гостей одночасно</div>
+      <div><span>3</span>корпуси проживання</div>
+      <div><span>230</span>місць у колибі</div>
+      <div><span>100%</span>затишок та Wi-Fi</div>
+    </div>
+  </div>
+  
+  <div class="hutsul-divider-bottom" aria-hidden="true"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <p class="eyebrow">Гуцульська гостинність</p>
+      <h2>Власне затишне гуцульське містечко у Верховині.</h2>
+      <p>«Аркан» створений у традиціях карпатського затишку: капітальні дерев'яні корпуси, простора колиба з автентичними стравами, альтанки серед ялиць та гойдалки з видом на хребти. Територія повністю закрита від сторонніх.</p>
+      <p>Ми розташовані у західній частині Верховини з комфортним доїздом у будь-яку пору року без складних серпантинів.</p>
       
-      <div class="hero-actions">
-        <a href="#stay" class="btn btn-primary">Обрати номер</a>
-        <a href="#spa" class="btn btn-line">SPA & Чани</a>
-      </div>
-
-      <div class="hero-stats">
-        <div>
-          <span>1000м</span>
-          <p>Висота над рівнем моря</p>
+      <div class="features-mini-grid">
+        <div class="feature-item">
+          <span class="feature-icon">🌲</span>
+          <div><strong>Закрита територія</strong><br><small>Альтанки, мангали та тиша</small></div>
         </div>
-        <div>
-          <span>12</span>
-          <p>Комфортних номерів</p>
+        <div class="feature-item">
+          <span class="feature-icon">🏊‍♂️</span>
+          <div><strong>СПА-комплекс</strong><br><small>Басейн, сауна та хамам</small></div>
         </div>
-        <div>
-          <span>4.9</span>
-          <p>Оцінка гостей</p>
+        <div class="feature-item">
+          <span class="feature-icon">🍲</span>
+          <div><strong>Справжня Колиба</strong><br><small>Автентична кухня до 230 осіб</small></div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="wrap">
-      <div class="about-grid">
-        <div>
-          <span class="eyebrow">Про комплекс «Аркан»</span>
-          <h2>Традиції та сучасний комфорт</h2>
-          <p class="section-lede">«Аркан» — це місце сила та спокою. Ми поєднали природну красу Карпат, екологічні матеріали та першокласний сервіс для вашого відновлення.</p>
-        </div>
-        <div class="photo-frame">
-          <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80" alt="Комплекс Аркан">
+        <div class="feature-item">
+          <span class="feature-icon">📶</span>
+          <div><strong>Швидкісний Wi-Fi</strong><br><small>Завжди на зв'язку у комплексах</small></div>
         </div>
       </div>
     </div>
-  </section>
+    <div class="about-photo">
+      <div class="photo-frame">
+        <picture>
+          <source srcset="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-262.jpg" type="image/jpeg">
+          <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-262.jpg" alt="Територія комплексу Аркан" loading="lazy" decoding="async" width="900" height="1125">
+        </picture>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <section id="stay" class="section">
-    <div class="wrap">
-      <span class="eyebrow">Проживання</span>
-      <h2>Номери та котеджі</h2>
-      <p class="section-lede">Кожен номер облаштовано всім необхідним для затишного перебування в будь-яку пору року.</p>
+<!-- STAY -->
+<section class="section stay" id="stay">
+  <div class="wrap">
+    <p class="eyebrow">Варіанти проживання</p>
+    <h2>Три корпуси — для кожної компанії.</h2>
+    <p class="section-lede">Від комфортних номерів у головному корпусі до відокремлених котеджів. У кожному номері — власний санвузол, якісний текстиль та краєвиди на гори.</p>
 
-      <div class="corpus-list">
-        <article class="corpus">
-          <div class="corpus-media">
-            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="Номер Люкс Аркан">
+    <div class="corpus-list">
+      <article class="corpus">
+        <div class="corpus-media">
+          <picture>
+            <img src="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-6.jpg" alt="Корпус №1" loading="lazy" decoding="async" width="800" height="533">
+          </picture>
+        </div>
+        <div class="corpus-body">
+          <span class="corpus-badge">Корпус №1 · Головний</span>
+          <h3>8 номерів · від 2 до 6 осіб</h3>
+          <p>На першому поверсі розміщено ресторан та банкетний зал, на другому — затишні номери з великими панорамними вікнами. Зручні ліжка, масивні меблі та краєвид на верхівки ялин.</p>
+          <div class="amenity-tags">
+            <span>Власний санвузол</span><span>Балкон/Вікно на гори</span><span>Wi-Fi</span><span>ТБ</span>
           </div>
-          <div class="corpus-body">
-            <h3>Панорамний Люкс</h3>
-            <p>Двокімнатний номер з краєвидом на гірські хребти, просторним балконом та великим двоспальним ліжком.</p>
-            <div class="corpus-price">від <span>3 200 ₴</span> / ніч</div>
-            <a href="#contacts" class="btn btn-primary btn-block">Забронювати</a>
+          <p class="corpus-price">від <span>1 500 грн</span> / доба</p>
+          <a href="tel:+380977712704" class="btn btn-primary">Забронювати Корпус №1</a>
+        </div>
+      </article>
+
+      <article class="corpus reverse">
+        <div class="corpus-media">
+          <picture>
+            <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-110.jpg" alt="Корпус №2" loading="lazy" decoding="async" width="800" height="533">
+          </picture>
+        </div>
+        <div class="corpus-body">
+          <span class="corpus-badge">Корпус №2 · З терасою</span>
+          <h3>4 номери · по 4 особи</h3>
+          <p>Сучасні номери з виходом на простору спільну терасу. Ідеальне місце для ранкової кави під шуми гірського вітру та вечірніх розмов.</p>
+          <div class="amenity-tags">
+            <span>Велика тераса</span><span>Власний санвузол</span><span>Вид на хребти</span>
           </div>
-        </article>
+          <p class="corpus-price">від <span>1 800 грн</span> / доба</p>
+          <a href="tel:+380977712704" class="btn btn-primary">Забронювати Корпус №2</a>
+        </div>
+      </article>
 
-        <article class="corpus reverse">
-          <div class="corpus-media">
-            <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" alt="Котедж Шале Аркан">
+      <article class="corpus">
+        <div class="corpus-media">
+          <picture>
+            <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel/verkhovynalife-arkan-11.jpg" alt="Корпус №3" loading="lazy" decoding="async" width="800" height="533">
+          </picture>
+        </div>
+        <div class="corpus-body">
+          <span class="corpus-badge">Корпус №3 · Окремі котеджі</span>
+          <h3>3 котеджі · по 4 особи</h3>
+          <p>Формат приватних будиночків з власним входом. Відмінне рішення для сімей з дітьми або компаній, які цінують максимум приватності та спокою.</p>
+          <div class="amenity-tags">
+            <span>Окремий вхід</span><span>Приватна тераса</span><span>Максимум тиші</span>
           </div>
-          <div class="corpus-body">
-            <h3>Гуцульське Шале</h3>
-            <p>Окремий двоповерховий котедж із каміном на дровах, власною кухнею та виходом до тераси.</p>
-            <div class="corpus-price">від <span>5 500 ₴</span> / ніч</div>
-            <a href="#contacts" class="btn btn-primary btn-block">Забронювати</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="spa" class="section spa">
-    <div class="wrap">
-      <div class="spa-grid">
-        <div>
-          <span class="eyebrow" style="color: var(--accent-gold);">Релаксація</span>
-          <h2>Карпатські чани та SPA</h2>
-          <p>Гарячі чани на джерельній воді з карпатськими травами під відкритим небом та фінська сауна.</p>
+          <p class="corpus-price">від <span>2 000 грн</span> / доба</p>
+          <a href="tel:+380977712704" class="btn btn-primary">Забронювати Котедж</a>
         </div>
-        <div class="spa-photo">
-          <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="SPA Аркан">
-        </div>
-      </div>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="food" class="section">
-    <div class="wrap">
-      <div class="about-grid">
-        <div class="photo-frame">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Ресторан Аркан">
-        </div>
-        <div>
-          <span class="eyebrow">Ресторан</span>
-          <h2>Гуцульська та європейська кухня</h2>
-          <p class="section-lede">Справжній банош із бринзою, грибна юшка з білих грибів та форель на мангалі від нашого шеф-кухаря.</p>
-        </div>
-      </div>
+<!-- SPA -->
+<section class="section spa" id="spa">
+  <div class="wrap spa-grid">
+    <div class="spa-photo">
+      <picture>
+        <img src="https://verkhovyna.life/files/Apartment/Arkan/SPA/verkhovynalife-arkan-1-1.jpg" alt="СПА басейн Аркан" loading="lazy" decoding="async" width="900" height="675">
+      </picture>
     </div>
-  </section>
-
-  <section id="reviews" class="section" style="background: var(--bg-card);">
-    <div class="wrap">
-      <span class="eyebrow">Відгуки</span>
-      <h2>Що кажуть наші гості</h2>
-      <p class="section-lede">«Неймовірна атмосфера! Чани просто супер, а вид з вікна номера — це щось казкове. Обов’язково повернемося в "Аркан"!» — Андрій та Ірина, Львів</p>
+    <div class="spa-text">
+      <p class="eyebrow">Карпатське відновлення</p>
+      <h2>Теплий басейн, фінська сауна та хамам.</h2>
+      <p>Після насиченого дня в горах, сходження на вершини чи поїздки на квадроциклах немає нічого кращого за відновлення у СПА. До ваших послуг великий критий басейн з комфортною температурою, фінська парна та турецький хамам.</p>
+      <ul class="spa-features">
+        <li><span>🌊</span> Великий закритий басейн</li>
+        <li><span>🔥</span> Фінська сауна на дровах</li>
+        <li><span>💨</span> Турецький хамам</li>
+        <li><span>☕</span> Кімната відпочинку з карпатським чаєм</li>
+      </ul>
+      <a href="tel:+380977712704" class="btn btn-primary" style="margin-top:20px;">Забронювати СПА</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contacts" class="section">
-    <div class="wrap">
-      <span class="eyebrow">Контакти</span>
-      <h2>Як нас знайти</h2>
-      <p>Україна, Карпати, смт. Яремче / Ворохта</p>
-      <p style="margin-top: 10px;"><strong>Телефон для бронювання:</strong> <a href="tel:+380991234567" style="color: var(--accent-primary);">+38 (099) 123-45-67</a></p>
+<!-- FOOD / KOLYBA -->
+<section class="section food" id="food">
+  <div class="wrap food-grid">
+    <div class="food-text">
+      <p class="eyebrow">Смак Гуцульщини</p>
+      <h2>Колиба «Аркан» — банош, грибочки та домашнє застілля.</h2>
+      <p>Наша колиба — це серце комплексу. Ми готуємо традиційні гуцульські страви за давніми рецептами: справжній банош із бринзою та шкварками, запашну юшку з білих карпатських грибів, бограч та страви на мангалі.</p>
+      <p>Великий банкетний зал вміщує до 230 гостей — ідеально для весіль у гуцульському стилі, корпоративів та ювілеїв.</p>
     </div>
-  </section>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© 2026 Готельний комплекс «Аркан». Всі права захищено.</p>
+    <div class="food-photo">
+      <picture>
+        <img src="https://verkhovyna.life/files/Apartment/Arkan/Food/verkhovynalife-arkannew-318.jpg" alt="Колиба Аркан" loading="lazy" decoding="async" width="900" height="675">
+      </picture>
     </div>
-  </footer>
-
-  <button class="back-to-top" aria-label="Нагору">↑</button>
-
-  <div class="mobile-action-bar">
-    <a href="tel:+380991234567" class="mob-btn call">Зателефонувати</a>
-    <a href="#contacts" class="mob-btn msg">Забронювати</a>
   </div>
 
-  <script src="script.js"></script>
+  <div class="wrap menu-block">
+    <p class="eyebrow">Наші страви</p>
+    <h3 class="menu-heading">Популярні частування Колиби</h3>
+    <div class="dishes-grid">
+      <div class="dish-card">
+        <h4>🍲 Гуцульський Банош</h4>
+        <p>Зварений на свіжих вершках із вурдою, овечою бринзою та шкварками.</p>
+      </div>
+      <div class="dish-card">
+        <h4>🍄 Карпатська Грибна Юшка</h4>
+        <p>Зібрані у верховинських лісах білі гриби зі спеціями та зеленню.</p>
+      </div>
+      <div class="dish-card">
+        <h4>🥩 М'ясо з мангала</h4>
+        <p>Соковитий шашлик, стейки та запечені ковбаски на відкритому вогні.</p>
+      </div>
+      <div class="dish-card">
+        <h4>☕ Чай з гірських трав</h4>
+        <p>Ароматний збір із чебрецю, м'яти, чорниці та полонинських квітів.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="https://verkhovyna.life/menuonline/2023/08/06/1176/view" target="_blank" rel="noopener" class="btn btn-ghost">📄 Відкрити повне меню з цінами</a>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES / ДОЗВІЛЛЯ -->
+<section class="section activities" id="activities">
+  <div class="wrap">
+    <p class="eyebrow">Пригоди поруч</p>
+    <h2>Чим зайнятися у Верховині.</h2>
+    <div class="activities-grid">
+      <div class="activity-card">
+        <span class="act-icon">🚣‍♂️</span>
+        <h3>Рафтинг Черемошем</h3>
+        <p>Сплави гірською річкою для любителів драйву та яскравих емоцій.</p>
+      </div>
+      <div class="activity-card">
+        <span class="act-icon">🛺</span>
+        <h3>Квадроцикли та багі</h3>
+        <p>Екскурсії на полонини з панорамними видами на Чорногірський хребет.</p>
+      </div>
+      <div class="activity-card">
+        <span class="act-icon">🎻</span>
+        <h3>Музеї Гуцульщини</h3>
+        <p>Музей гуцульської магії, фільму «Тіні забутих предків» та музичних інструментів.</p>
+      </div>
+      <div class="activity-card">
+        <span class="act-icon">🥾</span>
+        <h3>Піші походи</h3>
+        <p>Маршрути на Писаний Камінь, гору Піп Іван (Обсерваторія) та полонини.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY WITH LIGHTBOX -->
+<section class="section gallery" id="gallery">
+  <div class="wrap">
+    <p class="eyebrow">Атмосфера (Клікніть для збільшення)</p>
+    <h2>Комплекс у деталях.</h2>
+
+    <div class="carousel" id="galleryCarousel">
+      <div class="carousel-track" id="carouselTrack">
+        <div class="carousel-slide">
+          <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-267.jpg" alt="Вигляд корпусу" class="lightbox-trigger" loading="lazy" decoding="async">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-285.jpg" alt="Тераса" class="lightbox-trigger" loading="lazy" decoding="async">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://verkhovyna.life/files/Apartment/Arkan/New/verkhovynalife-arkan-1-14.jpg" alt="Гори" class="lightbox-trigger" loading="lazy" decoding="async">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://verkhovyna.life/files/Apartment/Arkan/Hotel_2/verkhovynalife-arkannew-292.jpg" alt="Номер" class="lightbox-trigger" loading="lazy" decoding="async">
+        </div>
+        <div class="carousel-slide">
+          <img src="https://verkhovyna.life/files/Apartment/Arkan/SPA/verkhovynalife-arkan-67.jpg" alt="СПА" class="lightbox-trigger" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Назад">‹</button>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Вперед">›</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq" id="faq">
+  <div class="wrap">
+    <p class="eyebrow">Відповіді на запитання</p>
+    <h2>Що часто запитують наші гості.</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Чи є у вас інтернет та зручності для відпочинку?</summary>
+        <p>Так! У комплексі завжди тепло, є гаряча вода та швидкісний бездротовий Wi-Fi на всій території для комфортного відпочинку й роботи.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Який час заїзду та виїзду?</summary>
+        <p>Заїзд можливий з 14:00, виїзд — до 12:00. Якщо вам потрібен ранній заїзд або пізній виїзд, будь ласка, повідомте нам заздалегідь.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Чи входить СПА у вартість проживання?</summary>
+        <p>СПА-комплекс (басейн, сауна, хамам) та харчування в колибі оплачуються окремо, що дозволяє вам обирати лише ті послуги, якими ви користуєтесь.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Чи можна приїжджати з домашніми улюбленцями?</summary>
+        <p>Ми дружні до тварин! Проживання з невеликими вихованими улюбленцями можливе за попередньою домовленістю при бронюванні.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE REVIEWS WIDGET -->
+<section class="section reviews">
+  <div class="wrap">
+    <div class="google-reviews-header">
+      <div>
+        <p class="eyebrow">Живі відгуки</p>
+        <h2>Що кажуть про «АРКАН» у Google Maps.</h2>
+      </div>
+      
+      <!-- Google Badge Widget -->
+      <div class="google-badge">
+        <div class="google-badge-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        </div>
+        <div class="google-badge-info">
+          <div class="google-score"><span>4.1</span> <span class="stars">★★★★☆</span></div>
+          <small>Понад 830 відгуків гостей</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <blockquote class="google-card">
+        <div class="rev-user">
+          <div class="avatar">СК</div>
+          <div>
+            <strong>Сім'я Ковальчук</strong>
+            <span class="rev-stars">★★★★★ <small>· Google Maps</small></span>
+          </div>
+        </div>
+        <p>«Приїжджали великою родиною. Діти бігали по закритій території, ми відпочивали у СПА. Банош у колибі — найкращий у Верховині!»</p>
+      </blockquote>
+
+      <blockquote class="google-card">
+        <div class="rev-user">
+          <div class="avatar">ОБ</div>
+          <div>
+            <strong>Олег Б.</strong>
+            <span class="rev-stars">★★★★★ <small>· Google Maps</small></span>
+          </div>
+        </div>
+        <p>«Проводили тут корпоратив на 40 людей. Зручно, що все в одному місці: проживання, великий банкетний зал, альтанки та мангали.»</p>
+      </blockquote>
+
+      <blockquote class="google-card">
+        <div class="rev-user">
+          <div class="avatar">МА</div>
+          <div>
+            <strong>Марина та Андрій</strong>
+            <span class="rev-stars">★★★★★ <small>· Google Maps</small></span>
+          </div>
+        </div>
+        <p>«Ранкова кава на терасі другого корпусу з видом на туманні гори — це любов з першого погляду. Обов'язково повернемось!»</p>
+      </blockquote>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://www.google.com/maps/place/Аркан/@48.1542,24.7980,15z" target="_blank" rel="noopener" class="btn btn-line">📍 Читати всі відгуки на Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & FAST NAVIGATION -->
+<section class="section contact" id="contact">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Бронювання та контакти</p>
+      <h2>Завітайте до серця Гуцульщини.</h2>
+      <p>Зателефонуйте або напишіть нам — ми залюбки допоможемо обрати найкращий номер під ваші дати.</p>
+
+      <div class="contact-block">
+        <span class="contact-label">Телефон для бронювання</span>
+        <a href="tel:+380977712704" class="phone-link">+38 (097) 771 27 04</a>
+      </div>
+
+      <div class="contact-block">
+        <span class="contact-label">Швидкі месенджери</span>
+        <div class="messenger-buttons">
+          <a href="https://t.me/+380977712704" target="_blank" class="btn-msg tg">Telegram</a>
+          <a href="viber://chat?number=%2B380977712704" class="btn-msg vb">Viber</a>
+        </div>
+      </div>
+
+      <!-- FAST NAVIGATION "ЯК ДОЇХАТИ" -->
+      <div class="contact-block route-section">
+        <span class="contact-label">🗺 Навігація («Як доїхати»):</span>
+        <p class="address-text">смт Верховина, Івано-Франківська обл. (Plus Code: 5Q3X+M5)</p>
+        <div class="route-btns">
+          <a href="https://www.google.com/maps/search/?api=1&query=48.1542,24.7980" target="_blank" class="btn-route gmaps">
+            🗺 Google Maps
+          </a>
+          <a href="https://waze.com/ul?ll=48.1542,24.7980&navigate=yes" target="_blank" class="btn-route waze">
+            🚙 Waze
+          </a>
+          <a href="https://maps.apple.com/?daddr=48.1542,24.7980" target="_blank" class="btn-route apple">
+            🍎 Apple Maps
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-panel">
+      <h3>Отримати консультацію</h3>
+      <p>Відповідаємо особисто та оперативно протягом 5 хвилин.</p>
+      <a href="tel:+380977712704" class="btn btn-primary btn-block">📞 Подзвонити зараз</a>
+      <a href="https://t.me/+380977712704" target="_blank" class="btn btn-ghost btn-block">💬 Написати в Telegram</a>
+    </div>
+  </div>
+</section>
+
+<div class="hutsul-ornament-band"></div>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span class="brand">❖ АРКАН</span>
+    <p>Відпочинковий комплекс у Верховині · Гуцульщина, Карпати</p>
+    <p class="footer-copy">© 2026 «АРКАН». Усі права застережено.</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX MODAL CONTAINER -->
+<div class="lightbox-modal" id="lightboxModal" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрити">&times;</button>
+  <button class="lightbox-prev" id="lightboxPrev" aria-label="Попереднє фото">‹</button>
+  <div class="lightbox-content">
+    <img src="" id="lightboxImg" alt="Перегляд галереї">
+    <p id="lightboxCaption" class="lightbox-caption"></p>
+  </div>
+  <button class="lightbox-next" id="lightboxNext" aria-label="Наступне фото">›</button>
+</div>
+
+<!-- Bottom Fixed Mobile Action Bar -->
+<div class="mobile-action-bar">
+  <a href="tel:+380977712704" class="mob-btn call">📞 Зателефонувати</a>
+  <a href="https://t.me/+380977712704" target="_blank" class="mob-btn msg">💬 Написати</a>
+</div>
+
+<button class="back-to-top" id="backToTop" aria-label="Нагору">↑</button>
+
+<script src="script.js"></script>
 </body>
 </html>
