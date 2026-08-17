@@ -1,20 +1,28 @@
+/* ==========================================================================
+   ГЛОБАЛЬНА ФУНКЦІЯ КНОПКИ «НАГОРУ»
+   ========================================================================== */
+function handleScrollBtn() {
+  const backToTopBtn = document.getElementById('backToTop');
+  if (!backToTopBtn) return;
+
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+  if (scrollTop > 200) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+}
+
+window.addEventListener('scroll', handleScrollBtn);
+
 document.addEventListener('DOMContentLoaded', () => {
   /* ==========================================================================
-     1. КНОПКА «НАГОРУ» (BACK TO TOP)
+     1. КНОПКА «НАГОРУ» (КЛІК ТА ІНІЦІАЛІЗАЦІЯ)
      ========================================================================== */
   const backToTopBtn = document.getElementById('backToTop');
 
   if (backToTopBtn) {
-    // Відстежуємо прокрутку сторінки
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show');
-      } else {
-        backToTopBtn.classList.remove('show');
-      }
-    });
-
-    // Плавний скролл нагору при кліку
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({
         top: 0,
@@ -22,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  handleScrollBtn();
 
   /* ==========================================================================
      2. МОБІЛЬНЕ МЕНЮ (BURGER MENU)
@@ -35,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
       mainNav.classList.toggle('active');
     });
 
-    // Закриваємо меню при кліку на будь-яке посилання
     mainNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         burger.classList.remove('active');
@@ -56,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(track.children);
     let currentIndex = 0;
 
-    // Створення крапок навігації
     if (dotsContainer) {
       dotsContainer.innerHTML = '';
       slides.forEach((_, index) => {
@@ -112,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
       lightboxModal.classList.add('active');
       lightboxModal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden'; // Заборонити прокрутку фону
+      document.body.style.overflow = 'hidden';
     };
 
     const closeLightbox = () => {
@@ -143,12 +151,10 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Закриття при кліку на темний фон
     lightboxModal.addEventListener('click', (e) => {
       if (e.target === lightboxModal) closeLightbox();
     });
 
-    // Закриття клавішею Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
         closeLightbox();

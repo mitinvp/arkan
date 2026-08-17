@@ -5,11 +5,11 @@
   --bg-dark: #1A2B20;         /* Темно-зелений (Карпатська хвоя) */
   --bg-light: #F7F4EE;        /* Теплий кремово-білий */
   --bg-card: #FFFFFF;         /* Білий для карток */
-  --text-dark: #1C241E;       /* Майже чорний для основного тексту */
+  --text-dark: #1C241E;       /* Темний текст */
   --text-muted: #5A665C;      /* Приглушений сіро-зелений */
-  --text-light: #F4EFE6;      /* Sвітлий текст на темному тлі */
+  --text-light: #F4EFE6;      /* Світлий текст */
   
-  --accent-primary: #C2612D;  /* Теракотовий (Карпатський акцент) */
+  --accent-primary: #C2612D;  /* Теракотовий */
   --accent-hover: #A44E20;    /* Темно-теракотовий */
   --accent-gold: #D4A359;     /* Золотаво-деревний */
   
@@ -639,7 +639,7 @@ a {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 10000;
   padding: 20px;
 }
 
@@ -782,7 +782,7 @@ a {
 .site-footer {
   background: var(--bg-dark);
   color: var(--text-light);
-  padding: 40px 0 90px; /* Додатковий відступ знизу для мобільного бару */
+  padding: 40px 0 90px;
   text-align: center;
   border-top: 1px solid rgba(255,255,255,0.1);
 }
@@ -794,7 +794,7 @@ a {
 }
 
 /* ==========================================================================
-   13. КНОПКА «НАГОРУ» (ОНОВЛЕНО ТА ПОКРАЩЕНО)
+   13. КНОПКА «НАГОРУ» (ПОВНІСТЮ ВІДНОВЛЕНА)
    ========================================================================== */
 .back-to-top {
   position: fixed;
@@ -803,42 +803,37 @@ a {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--accent-primary);
-  color: #FFFFFF;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  font-size: 22px;
+  background-color: #C2612D !important;
+  color: #FFFFFF !important;
+  border: 2px solid #FFFFFF;
+  font-size: 24px;
   font-weight: bold;
   line-height: 1;
   cursor: pointer;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  visibility: hidden;
-  transform: scale(0.8);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  z-index: 995;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  z-index: 9999 !important;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
+  display: flex !important;
 }
 
 .back-to-top:hover {
-  background: var(--accent-hover);
-  transform: translateY(-4px) scale(1.05);
+  background-color: #A44E20 !important;
+  transform: translateY(-4px);
   box-shadow: 0 8px 25px rgba(194, 97, 45, 0.5);
 }
 
 .back-to-top:active {
-  transform: translateY(0) scale(0.95);
+  transform: translateY(0);
 }
 
 /* ==========================================================================
-   14. MOBILE ACTION BAR (ПАНЕЛЬ НАВІГАЦІЇ ВНИЗУ)
+   14. MOBILE ACTION BAR
    ========================================================================== */
 .mobile-action-bar {
   display: none;
@@ -896,13 +891,12 @@ a {
     display: flex;
   }
 
-  /* Зсув кнопки «Нагору» вище мобільної панелі заходів */
   .back-to-top {
-    bottom: 80px;
+    bottom: 85px;
     right: 16px;
     width: 46px;
     height: 46px;
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .hero-title {
