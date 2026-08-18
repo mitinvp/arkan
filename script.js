@@ -79,7 +79,66 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. Кнопка «Нагору»
+  // 3. Лайтбокс (повноекранний перегляд фото галереї)
+  const lightboxModal = document.getElementById('lightboxModal');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCaption = document.getElementById('lightboxCaption');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const triggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+
+  if (lightboxModal && triggers.length) {
+    let lbIndex = 0;
+
+    function openLightbox(i) {
+      lbIndex = i;
+      const img = triggers[lbIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = img.alt || '';
+      lightboxModal.classList.add('open');
+      lightboxModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightboxModal.classList.remove('open');
+      lightboxModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    function showLightbox(delta) {
+      lbIndex = (lbIndex + delta + triggers.length) % triggers.length;
+      const img = triggers[lbIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = img.alt || '';
+    }
+
+    triggers.forEach((img, i) => {
+      img.addEventListener('click', () => openLightbox(i));
+    });
+
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', () => showLightbox(-1));
+    if (lightboxNext) lightboxNext.addEventListener('click', () => showLightbox(1));
+
+    // закриття по кліку на темний фон (але не по кліку на саме зображення/кнопки)
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+
+    // керування клавіатурою, лише коли лайтбокс відкритий
+    document.addEventListener('keydown', (e) => {
+      if (!lightboxModal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showLightbox(-1);
+      if (e.key === 'ArrowRight') showLightbox(1);
+    });
+  }
+
+  // 4. Кнопка «Нагору»
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
     window.addEventListener('scroll', () => {
@@ -91,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Активні посилання в навігації при прокручуванні
+  // 5. Активні посилання в навігації при прокручуванні
   const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
   const sections = navLinks
     .map(link => document.querySelector(link.getAttribute('href')))
