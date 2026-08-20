@@ -13,7 +13,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Галерея-карусель
+  // 2. Таби номерів у кожному корпусі
+  document.querySelectorAll('.room-tabs').forEach(block => {
+    const buttons = Array.from(block.querySelectorAll('.room-tab'));
+    const panels = Array.from(block.querySelectorAll('.room-tab-panel'));
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const roomId = btn.getAttribute('data-room');
+
+        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        panels.forEach(p => p.classList.toggle('active', p.getAttribute('data-room') === roomId));
+      });
+    });
+  });
+
+  // 3. Галерея-карусель
   const track = document.getElementById('carouselTrack');
   const dotsWrap = document.getElementById('carouselDots');
   const prevBtn = document.getElementById('carouselPrev');
@@ -79,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. Лайтбокс (повноекранний перегляд фото галереї)
+  // 4. Лайтбокс (повноекранний перегляд фото галереї)
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxCaption = document.getElementById('lightboxCaption');
@@ -138,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 4. Кнопка «Нагору»
+  // 5. Кнопка «Нагору»
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
     window.addEventListener('scroll', () => {
@@ -150,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Активні посилання в навігації при прокручуванні
+  // 6. Активні посилання в навігації при прокручуванні
   const navLinks = Array.from(document.querySelectorAll('.main-nav a'));
   const sections = navLinks
     .map(link => document.querySelector(link.getAttribute('href')))
