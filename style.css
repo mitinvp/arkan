@@ -31,6 +31,7 @@ html {
 body {
   margin: 0;
   font-family: var(--body);
+  font-size: 16px;
   color: var(--ink);
   background: var(--mist);
   line-height: 1.6;
@@ -112,7 +113,7 @@ ul {
   padding: 14px 30px;
   font-family: var(--body);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 16px;
   border-radius: var(--radius);
   border: 1px solid transparent;
   cursor: pointer;
@@ -305,13 +306,6 @@ ul {
   color: var(--copper-light);
 }
 
-.hero h1 {
-  font-size: clamp(38px, 5.4vw, 64px);
-  color: var(--mist);
-  margin-bottom: 26px;
-  text-shadow: 0 2px 24px rgba(0,0,0,0.25);
-}
-
 .hero-lede {
   font-size: 18px;
   color: rgba(247, 244, 236, 0.78);
@@ -436,7 +430,7 @@ ul {
 .about-text p {
   color: rgba(32, 36, 30, 0.75);
   margin-bottom: 16px;
-  font-size: 16.5px;
+  font-size: 16px;
 }
 
 .about-facts {
@@ -446,7 +440,7 @@ ul {
 }
 
 .about-facts li {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--spruce);
   padding-left: 22px;
@@ -562,7 +556,7 @@ ul {
 
 .room-tab {
   font-family: var(--body);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 500;
   color: rgba(247, 244, 236, 0.7);
   background: rgba(247, 244, 236, 0.05);
@@ -666,12 +660,12 @@ ul {
 
 .corpus-body p {
   color: rgba(247, 244, 236, 0.72);
-  font-size: 15.5px;
+  font-size: 16px;
 }
 
 .corpus-price {
   margin-top: 16px;
-  font-size: 15px;
+  font-size: 16px;
   color: rgba(247, 244, 236, 0.85);
   font-weight: 500;
 }
@@ -695,7 +689,7 @@ ul {
 
 .price-note {
   margin-top: 48px;
-  font-size: 13.5px;
+  font-size: 14px;
   color: rgba(247, 244, 236, 0.5);
   border-top: 1px solid rgba(247, 244, 236, 0.14);
   padding-top: 24px;
@@ -735,7 +729,7 @@ ul {
 
 .spa-text p {
   color: rgba(32, 36, 30, 0.75);
-  font-size: 16.5px;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
@@ -747,7 +741,7 @@ ul {
 }
 
 .spa-list li {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--spruce);
   padding: 10px 0;
@@ -777,7 +771,7 @@ ul {
 
 .food-text p {
   color: rgba(32, 36, 30, 0.75);
-  font-size: 16.5px;
+  font-size: 16px;
   margin-bottom: 14px;
 }
 
@@ -799,7 +793,7 @@ ul {
 }
 
 .menu-note {
-  font-size: 14.5px;
+  font-size: 14px;
   color: rgba(32, 36, 30, 0.6);
   max-width: 520px;
   margin-bottom: 32px;
@@ -839,7 +833,7 @@ ul {
   right: 0;
   bottom: 0;
   padding: 8px 10px;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--mist);
   background: linear-gradient(0deg, rgba(20, 31, 24, 0.85), transparent);
@@ -1028,7 +1022,7 @@ ul {
 
 .contact-info p {
   color: rgba(32, 36, 30, 0.75);
-  font-size: 16.5px;
+  font-size: 16px;
   margin-bottom: 36px;
   max-width: 420px;
 }
@@ -1039,7 +1033,7 @@ ul {
 
 .contact-label {
   display: block;
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1048,7 +1042,7 @@ ul {
 }
 
 .contact-block a {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--spruce);
 }
@@ -1075,7 +1069,7 @@ ul {
 
 .contact-panel-lede {
   color: rgba(247, 244, 236, 0.72);
-  font-size: 15.5px;
+  font-size: 16px;
 }
 
 /* ФУТЕР І ГУЦУЛЬСЬКИЙ ОРНАМЕНТ */
@@ -1109,11 +1103,11 @@ ul {
 
 .footer-inner .brand {
   color: var(--mist);
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .footer-copy {
-  font-size: 12.5px;
+  font-size: 13px;
   color: rgba(247, 244, 236, 0.35);
   margin-top: 8px;
 }
@@ -1124,31 +1118,46 @@ ul {
   right: 24px;
   bottom: 24px;
   z-index: 90;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--spruce);
-  color: var(--mist);
-  border: none;
-  border-radius: 50%;
+  color: var(--copper-light);
+  border: 2px solid var(--copper);
+  border-radius: 4px;
+  transform: rotate(45deg) translateY(8px);
   cursor: pointer;
-  box-shadow: 0 10px 24px -6px rgba(20, 31, 24, 0.4);
+  box-shadow: 0 10px 24px -6px rgba(20, 31, 24, 0.45);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.back-to-top::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(181, 101, 46, 0.5);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.back-to-top-icon {
+  transform: rotate(-45deg);
 }
 
 .back-to-top.visible {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: rotate(45deg) translateY(0);
 }
 
 .back-to-top:hover {
   background: var(--copper);
+  border-color: var(--copper-light);
+  color: var(--mist);
 }
 
 /* ===== HERO: бренд-блок, бейдж, назва ===== */
@@ -1192,7 +1201,7 @@ ul {
 }
 
 .hero-tagline {
-  font-size: 17px;
+  font-size: 16px;
   color: rgba(247, 244, 236, 0.75);
   margin-bottom: 16px;
 }
@@ -1235,7 +1244,7 @@ ul {
 
 .feature-item strong {
   display: block;
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--spruce);
   font-weight: 600;
   line-height: 1.3;
@@ -1272,7 +1281,7 @@ ul {
 }
 
 .amenity-tags span {
-  font-size: 12.5px;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(247, 244, 236, 0.85);
   padding: 6px 12px;
@@ -1291,7 +1300,7 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   color: var(--spruce);
   padding: 14px 4px;
@@ -1362,7 +1371,7 @@ ul {
 }
 
 .activity-card p {
-  font-size: 13.5px;
+  font-size: 14px;
   color: rgba(32, 36, 30, 0.65);
   line-height: 1.5;
 }
@@ -1393,7 +1402,7 @@ ul {
 .faq-item summary {
   cursor: pointer;
   font-weight: 600;
-  font-size: 15.5px;
+  font-size: 16px;
   color: var(--spruce);
   list-style: none;
   display: flex;
@@ -1419,7 +1428,7 @@ ul {
 
 .faq-item p {
   margin-top: 14px;
-  font-size: 14.5px;
+  font-size: 14px;
   color: rgba(32, 36, 30, 0.7);
   line-height: 1.6;
 }
@@ -1475,7 +1484,7 @@ ul {
 }
 
 .google-badge-info small {
-  font-size: 12.5px;
+  font-size: 13px;
   color: rgba(247, 244, 236, 0.5);
 }
 
@@ -1507,13 +1516,13 @@ ul {
 
 .rev-user strong {
   display: block;
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--mist);
   font-weight: 600;
 }
 
 .rev-stars {
-  font-size: 12.5px;
+  font-size: 13px;
   color: var(--copper-light);
 }
 
@@ -1523,7 +1532,7 @@ ul {
 
 /* ===== КОНТАКТИ: месенджери та маршрути ===== */
 .phone-link {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--spruce);
 }
@@ -1558,7 +1567,7 @@ ul {
 }
 
 .address-text {
-  font-size: 14.5px;
+  font-size: 14px;
   color: rgba(32, 36, 30, 0.7);
   margin: 8px 0 16px;
 }
@@ -1575,7 +1584,7 @@ ul {
   gap: 6px;
   padding: 9px 16px;
   border-radius: var(--radius);
-  font-size: 13.5px;
+  font-size: 14px;
   font-weight: 600;
   border: 1px solid var(--line);
   color: var(--spruce);
@@ -1599,7 +1608,7 @@ ul {
 
 .contact-panel p {
   color: rgba(247, 244, 236, 0.68);
-  font-size: 14.5px;
+  font-size: 14px;
 }
 
 /* ===== ГУЦУЛЬСЬКИЙ РОЗДІЛЮВАЧ (низ hero) ===== */
@@ -1746,7 +1755,7 @@ ul {
   justify-content: center;
   gap: 8px;
   padding: 16px 0;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--mist);
 }
