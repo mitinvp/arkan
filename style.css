@@ -1307,31 +1307,61 @@ ul {
   border-bottom: 1px solid var(--line);
 }
 
-/* ===== КОЛИБА: страви ===== */
-.dishes-grid {
+/* ===== КОЛИБА: меню ===== */
+.menu-categories {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 48px;
+  align-items: start;
 }
 
-.dish-card {
-  background: #fff;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-}
-
-.dish-card h4 {
-  font-size: 16px;
+.menu-category-title {
+  font-family: var(--display);
+  font-size: 20px;
   font-weight: 600;
   color: var(--spruce);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--copper);
 }
 
-.dish-card p {
-  font-size: 14px;
-  color: rgba(32, 36, 30, 0.68);
-  line-height: 1.55;
+.menu-list {
+  display: grid;
+  gap: 2px;
+}
+
+.menu-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.menu-item-name {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ink);
+  flex: 1;
+}
+
+.menu-item-name small {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(32, 36, 30, 0.6);
+  line-height: 1.4;
+}
+
+.menu-item-price {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--copper);
+  white-space: nowrap;
+  padding-top: 1px;
 }
 
 /* ===== ДОЗВІЛЛЯ ===== */
@@ -1789,7 +1819,7 @@ ul {
   .features-mini-grid {
     grid-template-columns: 1fr;
   }
-  .dishes-grid {
+  .dishes-grid, .menu-categories {
     grid-template-columns: repeat(2, 1fr);
   }
   .activities-grid {
@@ -1854,7 +1884,7 @@ ul {
     aspect-ratio: 4/3;
   }
 
-  .dishes-grid {
+  .dishes-grid, .menu-categories {
     grid-template-columns: 1fr;
   }
   .activities-grid {
