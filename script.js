@@ -19,12 +19,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const panels = Array.from(block.querySelectorAll('.room-tab-panel'));
 
     buttons.forEach(btn => {
+      btn.setAttribute('role', 'tab');
+      btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false');
       btn.addEventListener('click', () => {
         const roomId = btn.getAttribute('data-room');
 
-        buttons.forEach(b => b.classList.toggle('active', b === btn));
+        buttons.forEach(b => {
+          const isActive = b === btn;
+          b.classList.toggle('active', isActive);
+          b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
         panels.forEach(p => p.classList.toggle('active', p.getAttribute('data-room') === roomId));
       });
+    });
+  });
+
+  // 2b. Таби категорій меню колиби
+  const menuTabButtons = Array.from(document.querySelectorAll('.menu-tab'));
+  const menuCategories = Array.from(document.querySelectorAll('.menu-category'));
+
+  menuTabButtons.forEach(btn => {
+    btn.setAttribute('role', 'tab');
+    btn.setAttribute('aria-selected', btn.classList.contains('active') ? 'true' : 'false');
+    btn.addEventListener('click', () => {
+      const catId = btn.getAttribute('data-menu-cat');
+
+      menuTabButtons.forEach(b => {
+        const isActive = b === btn;
+        b.classList.toggle('active', isActive);
+        b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      menuCategories.forEach(c => c.classList.toggle('active', c.getAttribute('data-menu-cat') === catId));
     });
   });
 

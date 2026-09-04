@@ -13,7 +13,7 @@
 <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231A2B20'/%3E%3Cpath d='M50 15 L80 70 L20 70 Z M50 35 L68 70 L32 70 Z' fill='%23C2612D'/%3E%3C/svg%3E" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="style.css" rel="stylesheet"/>
 <!-- Structured Data (SEO) -->
 <script type="application/ld+json">
@@ -34,11 +34,11 @@
     "latitude": 48.1542,
     "longitude": 24.7980
   },
-  "hasMap": "https://www.google.com/maps/place/Аркан/@48.1542,24.7980,15z",
+  "hasMap": "https://www.google.com/maps/place/%D0%90%D1%80%D0%BA%D0%B0%D0%BD/@48.1542,24.798,15z/data=!4m8!3m7!1s0x4736eef691ef404f:0x6bbea7033f8402bb!8m2!3d48.1542396!4d24.7979998!9m1!1b1!16s%2Fg%2F11ddxpnb7r",
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "3.74",
-    "reviewCount": "99"
+    "ratingValue": "4.1",
+    "reviewCount": "843"
   },
   "priceRange": "від 1000 UAH"
 }
@@ -361,9 +361,18 @@
 <h3 class="menu-heading">Що подають у колибі «Аркан»</h3>
 <p class="menu-note">Гуцульська кухня та класична українська кухня.</p>
 
+<div class="menu-tab-buttons">
+  <button class="menu-tab active" data-menu-cat="0">Салати</button>
+  <button class="menu-tab" data-menu-cat="1">Холодні закуски</button>
+  <button class="menu-tab" data-menu-cat="2">Перші страви</button>
+  <button class="menu-tab" data-menu-cat="3">Гарячі м'ясні страви</button>
+  <button class="menu-tab" data-menu-cat="4">Другі страви</button>
+  <button class="menu-tab" data-menu-cat="5">Десерти</button>
+</div>
+
 <div class="menu-categories">
 
-  <div class="menu-category">
+  <div class="menu-category active" data-menu-cat="0">
     <h4 class="menu-category-title">Салати</h4>
     <ul class="menu-list">
       <li><span class="menu-item-name">Салат «Баршивка»<small>Сир, ковбаса, кукурудза, перець болгарський, огірок свіжий, цибуля, яйце. Заправлений майонезом.</small></span><span class="menu-item-price">200 грн</span></li>
@@ -379,7 +388,7 @@
     </ul>
   </div>
 
-  <div class="menu-category">
+  <div class="menu-category" data-menu-cat="1">
     <h4 class="menu-category-title">Холодні закуски</h4>
     <ul class="menu-list">
       <li><span class="menu-item-name">Соління з бочки</span><span class="menu-item-price">від 50 до 200 грн</span></li>
@@ -389,7 +398,7 @@
     </ul>
   </div>
 
-  <div class="menu-category">
+  <div class="menu-category" data-menu-cat="2">
     <h4 class="menu-category-title">Перші страви</h4>
     <ul class="menu-list">
       <li><span class="menu-item-name">Борщ «Гуцульський»</span><span class="menu-item-price">170 грн</span></li>
@@ -400,7 +409,7 @@
     </ul>
   </div>
 
-  <div class="menu-category">
+  <div class="menu-category" data-menu-cat="3">
     <h4 class="menu-category-title">Гарячі м'ясні страви</h4>
     <ul class="menu-list">
       <li><span class="menu-item-name">М'ясо по-французьки</span><span class="menu-item-price">220 грн</span></li>
@@ -422,7 +431,7 @@
     </ul>
   </div>
 
-  <div class="menu-category">
+  <div class="menu-category" data-menu-cat="4">
     <h4 class="menu-category-title">Другі страви</h4>
     <ul class="menu-list">
       <li><span class="menu-item-name">Картопля по-селянськи</span><span class="menu-item-price">110 грн</span></li>
@@ -455,7 +464,7 @@
     </ul>
   </div>
 
-  <div class="menu-category">
+  <div class="menu-category" data-menu-cat="5">
     <h4 class="menu-category-title">Десерти</h4>
     <ul class="menu-list">
       <li><span class="menu-item-name">Вареники на пару з вишнями</span><span class="menu-item-price">120 грн</span></li>
@@ -570,8 +579,8 @@
 <svg height="28" viewbox="0 0 24 24" width="28"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" fill="#FBBC05"></path><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" fill="#EA4335"></path></svg>
 </div>
 <div class="google-badge-info">
-<div class="google-score"><span>3.74</span> <span class="stars">★★★★☆</span></div>
-<small>99 відгуків гостей</small>
+<div class="google-score"><span>4,1</span> <span class="stars">★★★★☆</span></div>
+<small>843 відгуки гостей</small>
 </div>
 </div>
 </div>
@@ -608,7 +617,7 @@
 </blockquote>
 </div>
 <div style="text-align: center; margin-top: 30px;">
-<a class="btn btn-line" href="https://www.google.com/maps/place/Аркан/@48.1542,24.7980,15z" rel="noopener" target="_blank">📍 Читати всі відгуки на Google Maps</a>
+<a class="btn btn-line" href="https://www.google.com/maps/place/%D0%90%D1%80%D0%BA%D0%B0%D0%BD/@48.1542,24.798,15z/data=!4m8!3m7!1s0x4736eef691ef404f:0x6bbea7033f8402bb!8m2!3d48.1542396!4d24.7979998!9m1!1b1!16s%2Fg%2F11ddxpnb7r" rel="noopener" target="_blank">📍 Читати всі відгуки на Google Maps</a>
 </div>
 </div>
 </section>
@@ -635,7 +644,7 @@
 <span class="contact-label">🗺 Навігація («Як доїхати»):</span>
 <p class="address-text">вул. Жаб'євська, 67, смт Верховина, Івано-Франківська область</p>
 <div class="route-btns">
-<a class="btn-route gmaps" href="https://goo.gl/maps/8bWp8Hzq3EP2" target="_blank">
+<a class="btn-route gmaps" href="https://www.google.com/maps/place/%D0%90%D1%80%D0%BA%D0%B0%D0%BD/@48.1542,24.798,15z/data=!4m8!3m7!1s0x4736eef691ef404f:0x6bbea7033f8402bb!8m2!3d48.1542396!4d24.7979998!9m1!1b1!16s%2Fg%2F11ddxpnb7r" target="_blank">
             🗺 Google Maps
           </a>
 <a class="btn-route waze" href="https://waze.com/ul?ll=48.1542,24.7980&amp;navigate=yes" target="_blank">
